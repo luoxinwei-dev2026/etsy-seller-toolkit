@@ -17,7 +17,7 @@
         .btn-primary{background:#2196F3;color:#fff;}
         .btn-secondary{background:#eee;color:#333;}
         .dark-mode .btn-secondary{background:#444;color:#fff;}
-        .result-box{margin-top:25px;padding:15px;background:#f8f9fa;border-radius:8px;word-break:break-all;}
+        .result-box{margin-top:25px;padding:15px;background:#f8f9fa;border-radius:8px;word-break:break-all;line-height:1.6;}
         .dark-mode .result-box{background:#333;}
     </style>
 </head>
@@ -104,8 +104,8 @@
     <script src="lang.js"></script>
     <script>
         const formLang = {
-            zh:{label_key:"核心关键词",btn_gen:"生成拓展词",btn_reset:"清空",tip_out:"拓展关键词："},
-            en:{label_key:"Core Keyword",btn_gen:"Generate",btn_reset:"Clear",tip_out:"Extended Keywords："}
+            zh:{label_key:"核心关键词",btn_gen:"生成拓展词",btn_reset:"清空",tip_out:"拓展关键词：",tip_empty:"请输入核心关键词"},
+            en:{label_key:"Core Keyword",btn_gen:"Generate",btn_reset:"Clear",tip_out:"Extended Keywords：",tip_empty:"Please input keyword"}
         };
         const originSwitch = switchLang;
         switchLang = function(lang){
@@ -114,12 +114,13 @@
             document.getElementById("btn_gen").innerText = formLang[lang].btn_gen;
             document.getElementById("btn_reset").innerText = formLang[lang].btn_reset;
         };
-        const suffix = ["新款","家用","便携","大号","小号","加厚","升级","通用","创意","户外"];
+        // 内置拓展词库
+        const suffix = ["新款","家用","便携","大号","小号","加厚","升级","通用","创意","户外","防水","耐用","简约","多功能"];
         function expandKey(){
             let main = document.getElementById("key").value.trim();
             let lang = localStorage.getItem('preferredLang')||'zh';
             if(!main){
-                document.getElementById("resBox").innerText = lang==="zh"?"请输入核心关键词":"Please input keyword";
+                document.getElementById("resBox").innerText = formLang[lang].tip_empty;
                 return;
             }
             let list = suffix.map(item=>main+item);
