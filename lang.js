@@ -1,173 +1,139 @@
-// lang.js
 const translations = {
-    zh: {
-        home: "首页",
-        profit: "利润计算",
-        vat: "增值税",
-        shipping: "运费估算",
-        forbid: "禁词检测",
-        currency: "实时汇率",
-        size: "尺寸换算",
-        keyword: "关键词拓展",
-        char: "字符统计",
-        stock: "库存计算",
-        volweight: "体积重量",
-        quote: "报价毛利",
-        title: "标题生成",
-        desc: "描述生成",
-        track: "物流追踪",
-        discount: "折扣计算",
-        unit: "通用单位换算",
-        time: "日期计算",
-        profitrate: "利润率速算",
-        textclean: "文本清理",
+    home: { zh: "🏠 首页", en: "🏠 Home" },
+    btn_back: { zh: "返回首页", en: "Back to Home" },
+    footer_copyright: { zh: "© 2026 跨境卖家工具箱. 保留所有权利.", en: "© 2026 Cross-border Seller Toolkit. All Rights Reserved." },
+    version_title: { zh: "版本更新日志", en: "Version Update Log" },
+    version_v10: { zh: "V1.0.0 | 2026-06-10 : 基础功能上线，支持电商、物流工具，双语及深色模式", en: "V1.0.0 | 2026-06-10 : Basic functions launched, with e-commerce & logistics tools, bilingual & dark mode supported" },
+    version_v11: { zh: "V1.1.0 | 待发布：优化移动端布局，增加表单验证与操作提示", en: "V1.1.0 | Pending : Optimize mobile layout, add form validation & operation tips" },
+    site_title: { zh: "Etsy 卖家工具箱", en: "Etsy Seller Toolkit" },
+    site_desc: { zh: "一站式跨境电商运营工具，助你高效管理店铺", en: "One-stop cross-border e-commerce tools to help you manage your store efficiently" },
 
-        p1title: "利润计算器",
-        p1desc: "包含手续费、运费，精准计算净利润与利润率",
-        p2title: "增值税计算器",
-        p2desc: "计算欧洲站点VAT税费，合规申报不踩坑",
-        p3title: "运费估算器",
-        p3desc: "根据重量、体积，预估国际物流成本",
-        p4title: "禁词检测器",
-        p4desc: "检测商品标题/描述中的平台违禁词，降低违规风险",
-        p5title: "实时汇率换算",
-        p5desc: "快速换算美元、欧元、英镑等主流货币",
-        p6title: "尺寸换算器",
-        p6desc: "英寸/厘米、盎司/克等单位一键换算",
-        p7title: "关键词拓展",
-        p7desc: "基于核心词拓展长尾关键词，优化搜索曝光",
-        p8title: "字符统计工具",
-        p8desc: "统计文本字符数，适配各平台标题/描述限制",
-        p9title: "库存计算器",
-        p9desc: "计算安全库存、补货周期，避免断货/压货",
-        p10title: "体积重量计算器",
-        p10desc: "计算物流计费体积重，预估实际运费",
-        p11title: "报价毛利计算器",
-        p11desc: "根据成本、目标利润率，反推合理售价",
-        p12title: "标题生成器",
-        p12desc: "自动生成符合平台规则的高流量商品标题",
-        p13title: "描述生成器",
-        p13desc: "一键生成专业、合规的商品详情描述",
-        p14title: "物流追踪工具",
-        p14desc: "查询包裹实时物流状态，同步更新运输节点",
-        p15title: "折扣计算器",
-        p15desc: "计算折扣价、优惠力度，设置促销活动更省心",
-        p16title: "通用单位换算",
-        p16desc: "支持重量、长度、体积等多种跨境常用单位换算",
-        p17title: "日期计算器",
-        p17desc: "计算时间差、预估到货日期，安排备货节奏",
-        p18title: "利润率速算器",
-        p18desc: "快速计算毛利率、净利率，判断产品盈利空间",
-        p19title: "文本清理工具",
-        p19desc: "去除多余空格、特殊字符，格式化文本内容",
+    profit: { zh: "💰 利润计算", en: "💰 Profit" },
+    vat: { zh: "💶 VAT 计算", en: "💶 VAT" },
+    shipping: { zh: "🚚 运费估算", en: "🚚 Shipping" },
+    forbid: { zh: "🚫 禁词检测", en: "🚫 Forbidden Words" },
+    currency: { zh: "💱 实时汇率", en: "💱 Currency" },
+    size: { zh: "📏 尺寸换算", en: "📏 Size" },
+    keyword: { zh: "🔑 关键词拓展", en: "🔑 Keyword" },
+    char: { zh: "🔤 字符统计", en: "🔤 Char Counter" },
+    stock: { zh: "📦 库存计算", en: "📦 Stock" },
+    volweight: { zh: "📐 体积重量", en: "📐 Vol Weight" },
+    quote: { zh: "💵 报价毛利", en: "💵 Quote Margin" },
+    title: { zh: "📝 标题生成", en: "📝 Title" },
+    descgen: { zh: "📄 描述生成", en: "📄 Description" },
+    track: { zh: "📦 物流追踪", en: "📦 Tracking" },
+    discount: { zh: "💴 折扣计算", en: "💴 Discount" },
+    unit: { zh: "⚖️ 通用单位换算", en: "⚖️ Unit Convert" },
+    time: { zh: "⏰ 日期计算", en: "⏰ Time Calc" },
+    profitrate: { zh: "📈 利润率速算", en: "📈 Profit Rate" },
+    textclean: { zh: "🧹 文本清理", en: "🧹 Text Clean" },
 
-        btn_back: "返回首页",
-        footer_copyright: "© 2026 跨境卖家全能工具箱 版权所有",
-        version_title: "版本更新记录",
-        version_v10: "V1.0.0 | 2026-06-10 : 基础功能上线，整合计算、物流、文案类工具，支持中英双语与深色模式",
-        version_v11: "V1.1.0 | 待更新：优化移动端布局，新增输入校验与操作反馈"
-    },
-    en: {
-        home: "Home",
-        profit: "Profit Calculator",
-        vat: "VAT Calculator",
-        shipping: "Shipping Estimator",
-        forbid: "Forbidden Word Check",
-        currency: "Real-time Currency",
-        size: "Size Converter",
-        keyword: "Keyword Expander",
-        char: "Char Counter",
-        stock: "Stock Calculator",
-        volweight: "Volume Weight",
-        quote: "Quote Margin",
-        title: "Title Generator",
-        desc: "Description Generator",
-        track: "Package Tracker",
-        discount: "Discount Calculator",
-        unit: "Unit Converter",
-        time: "Time Calculator",
-        profitrate: "Profit Rate",
-        textclean: "Text Cleaner",
+    card_profit_title: { zh: "💰 利润计算器", en: "💰 Profit Calculator" },
+    card_profit_desc: { zh: "包含手续费、运费，精准计算净利润与利润率", en: "Calculate net profit, gross and net margin accurately" },
+    card_vat_title: { zh: "💶 增值税计算器", en: "💶 VAT Calculator" },
+    card_vat_desc: { zh: "计算欧洲站点VAT税费，合规申报不踩坑", en: "Calculate VAT costs for European sites" },
+    card_shipping_title: { zh: "🚚 运费估算器", en: "🚚 Shipping Estimator" },
+    card_shipping_desc: { zh: "根据重量、体积，预估国际物流成本", en: "Estimate international shipping costs" },
+    card_forbid_title: { zh: "🚫 禁词检测器", en: "🚫 Forbidden Words Checker" },
+    card_forbid_desc: { zh: "检测商品标题/描述中的平台违禁词，降低违规风险", en: "Check sensitive words to avoid violations" },
+    card_currency_title: { zh: "💱 实时汇率换算", en: "💱 Currency Converter" },
+    card_currency_desc: { zh: "快速换算美元、欧元、英镑等主流货币", en: "Convert multi-currency costs and prices" },
+    card_size_title: { zh: "📏 尺寸换算器", en: "📏 Size Converter" },
+    card_size_desc: { zh: "英寸/厘米、盎司/克等单位一键换算", en: "Quick inch/cm conversion" },
+    card_keyword_title: { zh: "🔑 关键词拓展", en: "🔑 Keyword Expander" },
+    card_keyword_desc: { zh: "基于核心词拓展长尾关键词，优化搜索曝光", en: "Generate long-tail keywords" },
+    card_char_title: { zh: "🔤 字符统计工具", en: "🔤 Character Counter" },
+    card_char_desc: { zh: "统计文本字符数，适配各平台标题/描述限制", en: "Count characters to control text length" },
+    card_stock_title: { zh: "📦 库存计算器", en: "📦 Stock Calculator" },
+    card_stock_desc: { zh: "计算可售天数，及时补货", en: "Calculate available days to replenish inventory in time" },
+    card_volweight_title: { zh: "📐 体积重量计算器", en: "📐 Volume Weight Calculator" },
+    card_volweight_desc: { zh: "计算物流体积重，避免额外运费", en: "Calculate volumetric weight" },
+    card_quote_title: { zh: "💵 报价毛利计算器", en: "💵 Quote Margin Calculator" },
+    card_quote_desc: { zh: "根据目标毛利反推产品售价", en: "Calculate product price based on target margin" },
+    card_title_title: { zh: "📝 标题生成器", en: "📝 Title Generator" },
+    card_title_desc: { zh: "一键生成合规高流量产品标题", en: "Generate compliant high-traffic product titles" },
+    card_descgen_title: { zh: "📄 描述生成器", en: "📄 Description Generator" },
+    card_descgen_desc: { zh: "一键生成专业、合规的商品详情描述", en: "Generate professional and compliant product descriptions" },
+    card_track_title: { zh: "📦 物流追踪工具", en: "📦 Package Tracker" },
+    card_track_desc: { zh: "查询包裹实时物流状态", en: "Check real-time logistics status of packages" },
+    card_discount_title: { zh: "💴 折扣计算器", en: "💴 Discount Calculator" },
+    card_discount_desc: { zh: "计算折扣价与最终到手价", en: "Calculate discount price and final selling price" },
+    card_unit_title: { zh: "⚖️ 通用单位换算", en: "⚖️ General Unit Converter" },
+    card_unit_desc: { zh: "重量、长度、体积单位一键转换", en: "One-click conversion of weight, length and volume units" },
+    card_time_title: { zh: "⏰ 日期计算器", en: "⏰ Time Calculator" },
+    card_time_desc: { zh: "计算日期差、工作日天数", en: "Calculate date differences and working days" },
+    card_profitrate_title: { zh: "📈 利润率分析器", en: "📈 Profit Rate Analyzer" },
+    card_profitrate_desc: { zh: "快速分析整体利润与净利率", en: "Quickly analyze overall profit and net margin" },
+    card_textclean_title: { zh: "🧹 文本清理工具", en: "🧹 Text Cleaner" },
+    card_textclean_desc: { zh: "去除多余空格、换行符，整理文案", en: "Remove extra spaces and line breaks to organize text" },
 
-        p1title: "Profit Calculator",
-        p1desc: "Calculate net profit and margin including fees and shipping",
-        p2title: "VAT Calculator",
-        p2desc: "Calculate European market sales tax",
-        p3title: "Shipping Estimator",
-        p3desc: "Estimate international shipping cost",
-        p4title: "Forbidden Word Check",
-        p4desc: "Avoid platform restricted keywords",
-        p5title: "Real-time Currency",
-        p5desc: "Live exchange rate conversion",
-        p6title: "Size Converter",
-        p6desc: "Inch ↔ Centimeter conversion",
-        p7title: "Keyword Expander",
-        p7desc: "Generate SEO long-tail keywords",
-        p8title: "Char Counter",
-        p8desc: "Count text characters quickly",
-        p9title: "Stock Calculator",
-        p9desc: "Inventory & stock quantity calculation",
-        p10title: "Volume Weight Calculator",
-        p10desc: "Calculate logistics volumetric weight",
-        p11title: "Quote Margin Calculator",
-        p11desc: "Calculate quotation and profit margin",
-        p12title: "Title Generator",
-        p12desc: "Generate high-traffic product titles",
-        p13title: "Description Generator",
-        p13desc: "Generate professional product descriptions",
-        p14title: "Package Tracker",
-        p14desc: "Track international logistics status",
-        p15title: "Discount Calculator",
-        p15desc: "Calculate discount and final price",
-        p16title: "Unit Converter",
-        p16desc: "Convert various units quickly",
-        p17title: "Time Calculator",
-        p17desc: "Calculate dates and time differences",
-        p18title: "Profit Rate Calculator",
-        p18desc: "Calculate profit margin and ROI",
-        p19title: "Text Cleaner",
-        p19desc: "Clean and format text content",
-
-        btn_back: "Back to Home",
-        footer_copyright: "© 2026 Cross-border Seller Toolkit. All Rights Reserved.",
-        version_title: "Version Update Log",
-        version_v10: "V1.0.0 | 2026-06-10 : Basic functions launched, with e-commerce & logistics tools, bilingual & dark mode supported",
-        version_v11: "V1.1.0 | Pending : Optimize mobile layout, add input validation & operation feedback"
-    }
+    p1title: { zh: "利润计算器", en: "Profit Calculator" },
+    p1desc: { zh: "包含手续费、运费，精准计算净利润与利润率", en: "Calculate net profit and margin including fees and shipping" },
+    p2title: { zh: "增值税计算器", en: "VAT Calculator" },
+    p2desc: { zh: "计算欧洲站点VAT税费，合规申报不踩坑", en: "Calculate VAT costs for European sites" },
+    p3title: { zh: "运费估算器", en: "Shipping Estimator" },
+    p3desc: { zh: "预估国际物流费用", en: "Estimate international shipping costs" },
+    p4title: { zh: "违禁词检测器", en: "Forbidden Words Checker" },
+    p4desc: { zh: "检测敏感词，避免违规下架", en: "Detect sensitive words to avoid violations" },
+    p5title: { zh: "实时汇率换算", en: "Currency Converter" },
+    p5desc: { zh: "多币种成本与售价换算", en: "Convert multi-currency costs and prices" },
+    p6title: { zh: "尺寸换算器", en: "Size Converter" },
+    p6desc: { zh: "英寸/厘米快速转换", en: "Inch ↔ Centimeter conversion" },
+    p7title: { zh: "关键词拓展", en: "Keyword Expander" },
+    p7desc: { zh: "生成长尾词，优化搜索排名", en: "Generate related long-tail keywords" },
+    p8title: { zh: "字符统计工具", en: "Character Counter" },
+    p8desc: { zh: "统计文案字符数，控制长度", en: "Count characters to control text length" },
+    p9title: { zh: "库存计算器", en: "Stock Calculator" },
+    p9desc: { zh: "计算可售天数，及时补货", en: "Inventory & stock quantity calculation" },
+    p10title: { zh: "体积重量计算器", en: "Volume Weight Calculator" },
+    p10desc: { zh: "计算物流体积重，避免额外运费", en: "Calculate logistics volumetric weight" },
+    p11title: { zh: "报价毛利计算器", en: "Quote Margin Calculator" },
+    p11desc: { zh: "根据目标毛利反推产品售价", en: "Calculate quotation and profit margin" },
+    p12title: { zh: "标题生成器", en: "Title Generator" },
+    p12desc: { zh: "一键生成合规高流量产品标题", en: "Generate e-commerce product titles" },
+    p13title: { zh: "描述生成器", en: "Description Generator" },
+    p13desc: { zh: "生成专业合规的商品详情描述", en: "Generate product detailed description" },
+    p14title: { zh: "物流追踪工具", en: "Package Tracker" },
+    p14desc: { zh: "查询包裹实时物流状态", en: "Track international logistics status" },
+    p15title: { zh: "折扣计算器", en: "Discount Calculator" },
+    p15desc: { zh: "计算折扣价与最终到手价", en: "Calculate discount & final price" },
+    p16title: { zh: "通用单位换算", en: "General Unit Converter" },
+    p16desc: { zh: "重量、长度、体积单位一键转换", en: "Weight, length, volume unit conversion" },
+    p17title: { zh: "日期计算器", en: "Time Calculator" },
+    p17desc: { zh: "计算日期差、工作日天数", en: "Calculate dates and time differences" },
+    p18title: { zh: "利润率分析器", en: "Profit Rate Analyzer" },
+    p18desc: { zh: "快速分析整体利润与净利率", en: "Quick profit rate analysis" },
+    p19title: { zh: "文本清理工具", en: "Text Cleaner" },
+    p19desc: { zh: "去除多余空格、换行符，整理文案", en: "Remove extra spaces & line breaks" }
 };
 
-// 语言切换函数
+let currentLang = localStorage.getItem('lang') || 'zh';
+
 function switchLang(lang) {
-    localStorage.setItem('preferredLang', lang);
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
     document.querySelectorAll('[data-lang]').forEach(el => {
         const key = el.getAttribute('data-lang');
-        if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
+        if (translations[key] && translations[key][lang]) {
+            el.textContent = translations[key][lang];
         }
     });
-    // 更新语言按钮状态
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
 }
 
-// 深色模式切换函数
+let isDarkMode = localStorage.getItem('darkMode') === 'true';
 function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDark);
+    isDarkMode = !isDarkMode;
+    localStorage.setItem('darkMode', isDarkMode);
+    document.body.classList.toggle('dark-mode', isDarkMode);
 }
 
-// 页面加载时初始化
-document.addEventListener('DOMContentLoaded', () => {
-    // 加载语言偏好
-    const savedLang = localStorage.getItem('preferredLang') || 'zh';
-    switchLang(savedLang);
+function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+}
 
-    // 加载深色模式偏好
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (savedDarkMode) {
+window.onload = function() {
+    switchLang(currentLang);
+    if (isDarkMode) {
         document.body.classList.add('dark-mode');
     }
-});
+};
