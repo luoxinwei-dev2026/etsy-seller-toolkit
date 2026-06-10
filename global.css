@@ -1,4 +1,4 @@
-/* === 全局重置：去掉浏览器默认样式 === */
+/* 全局重置 */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     color: #1e293b;
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 56px; /* 给导航栏留空间 */
+    padding-top: 56px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -20,7 +20,7 @@ body.dark-mode {
     color: #e2e8f0;
 }
 
-/* === 顶部导航栏：清爽单排，解决重复问题 === */
+/* 顶部导航 */
 nav {
     position: fixed;
     top: 0;
@@ -31,13 +31,12 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    overflow-x: auto; /* 超出部分可横向滚动，不会溢出 */
+    overflow-x: auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     z-index: 100;
     white-space: nowrap;
 }
 
-/* 导航栏滚动条美化 */
 nav::-webkit-scrollbar {
     height: 4px;
 }
@@ -57,7 +56,7 @@ nav a:hover {
     opacity: 0.8;
 }
 
-/* === 深色模式按钮：修复错位问题 === */
+/* 深色模式按钮 */
 .global-buttons {
     position: fixed;
     top: 10px;
@@ -82,9 +81,9 @@ body.dark-mode .global-btn {
     border-color: #475569;
 }
 
-/* === 页面容器：居中+限制宽度，不贴边 === */
+/* 页面容器 */
 .container {
-    max-width: 600px; /* 控制页面宽度，不宽得难受 */
+    max-width: 600px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
 }
@@ -104,7 +103,7 @@ body.dark-mode .page-header p {
     color: #94a3b8;
 }
 
-/* === 表单卡片：统一圆角、阴影、内边距 === */
+/* 卡片样式 */
 .calculator-card {
     background: white;
     border-radius: 12px;
@@ -141,7 +140,7 @@ body.dark-mode .input-group textarea {
     color: white;
 }
 
-/* === 按钮：统一风格，hover有反馈 === */
+/* 按钮组 */
 .btn-group {
     display: flex;
     gap: 1rem;
@@ -168,7 +167,7 @@ body.dark-mode .input-group textarea {
     background: #cbd5e1;
 }
 
-/* === 结果框：统一样式 === */
+/* 结果框 */
 .result-box {
     padding: 1rem;
     background: #f1f5f9;
@@ -179,7 +178,7 @@ body.dark-mode .result-box {
     background: #334155;
 }
 
-/* === 返回首页按钮：居中对齐 === */
+/* 底部返回 */
 .back-to-home {
     text-align: center;
 }
