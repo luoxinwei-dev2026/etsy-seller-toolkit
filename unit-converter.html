@@ -33,16 +33,16 @@
     <div class="container">
         <div class="page-header">
             <h1>Unit Converter</h1>
-            <p>Convert different units</p>
+            <p>General unit conversion</p>
         </div>
         <div class="calculator-card">
             <div class="input-group">
                 <label>Input Value</label>
-                <input type="number" id="unitVal" placeholder="Enter value">
+                <input type="number" id="uVal" placeholder="Enter value">
             </div>
             <div class="input-group">
                 <label>Conversion Factor</label>
-                <input type="number" id="factor" placeholder="Enter factor">
+                <input type="number" id="uFactor" placeholder="Enter factor">
             </div>
             <div class="btn-group">
                 <button class="btn" onclick="convert()">Convert</button>
@@ -57,13 +57,13 @@
 
     <script>
         function convert(){
-            let val = parseFloat(document.getElementById('unitVal').value)||0;
-            let fac = parseFloat(document.getElementById('factor').value)||0;
-            document.getElementById('res').innerText = "Converted Result: " + (val * fac).toFixed(2);
+            let v = parseFloat(document.getElementById('uVal').value)||0;
+            let f = parseFloat(document.getElementById('uFactor').value)||0;
+            document.getElementById('res').innerText = `Result: ${(v * f).toFixed(2)}`;
         }
         function reset(){
-            document.getElementById('unitVal').value = "";
-            document.getElementById('factor').value = "";
+            document.getElementById('uVal').value = "";
+            document.getElementById('uFactor').value = "";
             document.getElementById('res').innerText = "";
         }
     </script>
