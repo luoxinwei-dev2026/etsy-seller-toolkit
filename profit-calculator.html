@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etsy Profit Calculator</title>
+    <title>Etsy Profit Calculator | Calculate Your Selling Profit</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; padding: 20px; }
+        body { background-color: #f0f4f8; color: #333; padding-top: 70px; }
+        nav { background-color: #3498db; padding: 15px; position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ecf0f1; }
         .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
         .form-group { margin-bottom: 20px; }
@@ -15,11 +18,19 @@
         button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
         button:hover { background-color: #2980b9; }
         .result { margin-top: 30px; padding: 20px; background-color: #e8f4fd; border-radius: 5px; }
-        .result p { margin: 10px 0; font-size: 1.1rem; }
         .back-link { display: block; text-align: center; margin-top: 20px; color: #3498db; text-decoration: none; }
+        footer { text-align: center; margin-top: 30px; color: #777; font-size: 0.9rem; padding: 20px; }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="profit-calculator.html">💰 Profit Calculator</a>
+        <a href="title-generator.html">📝 Title & Tags</a>
+        <a href="description-generator.html">🌐 Description</a>
+        <a href="package-tracker.html">📦 Package Tracker</a>
+    </nav>
+
     <div class="container">
         <h1>Etsy Profit Calculator</h1>
         <form id="profitForm">
@@ -51,6 +62,10 @@
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 
+    <footer>
+        <p>© 2025 Etsy Seller Toolkit | All tools are free to use.</p>
+    </footer>
+
     <script>
         document.getElementById('profitForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -59,8 +74,8 @@
             const shipping = parseFloat(document.getElementById('shipping').value);
             const fees = parseFloat(document.getElementById('fees').value);
 
-            const etsyFee = price * 0.065; // 6.5% Etsy fee
-            const transactionFee = 0.25; // $0.25 per transaction
+            const etsyFee = price * 0.065;
+            const transactionFee = 0.25;
 
             const totalCost = cost + shipping + fees + etsyFee + transactionFee;
             const netProfit = price - totalCost;
