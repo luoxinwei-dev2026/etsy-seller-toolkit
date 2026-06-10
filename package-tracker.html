@@ -54,4 +54,79 @@
         </div>
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit
+            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
+            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
+            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
+            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
+            <a href="size-converter.html" data-lang="size">📏 Size</a>
+            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
+            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
+            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
+            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
+            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
+            <a href="title-generator.html" data-lang="title">📝 Title</a>
+            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
+            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
+            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
+            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
+            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
+            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
+            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h3 data-lang="p14title">Package Tracker</h3>
+            <p data-lang="p14desc">Track international logistics status</p>
+        </header>
+        <div class="calculator-card">
+            <div class="input-group">
+                <label id="label_tracking">物流单号</label>
+                <input type="text" id="trackingNo" placeholder="输入单号">
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="trackPackage()" id="btn_track">查询</button>
+                <button class="btn btn-secondary" onclick="resetTrack()" id="btn_reset">清空</button>
+            </div>
+            <div class="result-box" id="resBox"></div>
+        </div>
+        <div style="text-align:center;margin:20px 0;">
+            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
+    </footer>
+
+    <script src="lang.js"></script>
+    <script>
+        const formLang = {
+            zh:{label_tracking:"物流单号",btn_track:"查询",btn_reset:"清空",tip_empty:"请输入物流单号",tip_status:"当前状态：已发出，运输中"},
+            en:{label_tracking:"Tracking Number",btn_track:"Track",btn_reset:"Clear",tip_empty:"Please input tracking number",tip_status:"Status: Shipped, in transit"}
+        };
+        const originSwitch = switchLang;
+        switchLang = function(lang){
+            originSwitch(lang);
+            document.getElementById("label_tracking").innerText = formLang[lang].label_tracking;
+            document.getElementById("btn_track").innerText = formLang[lang].btn_track;
+            document.getElementById("btn_reset").innerText = formLang[lang].btn_reset;
+        };
+        function trackPackage(){
+            let no = document.getElementById("trackingNo").value.trim();
+            let lang = localStorage.getItem('preferredLang')||'zh';
+            if(!no){
+                document.getElementById("resBox").innerText = formLang[lang].tip_empty;
+                return;
+            }
+            document.getElementById("resBox").innerText = `${no}\n${formLang[lang].tip_status}`;
+        }
+        function resetTrack(){
+            document.getElementById("trackingNo").value = "";
+            document.getElementById("resBox").innerText = "";
+        }
+    </script>
+</body>
+</html>
