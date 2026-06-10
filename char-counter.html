@@ -3,112 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Counter</title>
+    <title>Char Counter</title>
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
     <div class="global-buttons">
-        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        <button class="global-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </div>
 
     <nav>
-        <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
-        <div class="desktop-menu">
-            <a href="index.html">🏠 Home</a>
-            <a href="profit-calculator.html">💰 Profit</a>
-            <a href="vat-calculator.html">💶 VAT</a>
-            <a href="shipping-estimator.html">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
-            <a href="currency-converter.html">💱 Currency</a>
-            <a href="size-converter.html">📏 Size</a>
-            <a href="keyword-expander.html">🔑 Keyword</a>
-            <a href="char-counter.html">🔤 Char Counter</a>
-            <a href="stock-calculator.html">📦 Stock</a>
-            <a href="volume-weight.html">📐 Vol Weight</a>
-            <a href="quote-calculator.html">💵 Quote Margin</a>
-            <a href="title-generator.html">📝 Title</a>
-            <a href="description-generator.html">📄 Description</a>
-            <a href="package-tracker.html">📦 Tracking</a>
-            <a href="discount-calculator.html">💴 Discount</a>
-            <a href="unit-converter.html">⚖️ Unit Convert</a>
-            <a href="time-calculator.html">⏰ Time Calc</a>
-            <a href="profit-rate.html">📈 Profit Rate</a>
-            <a href="text-cleaner.html">🧹 Text Clean</a>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html">🏠 Home</a>
-            <a href="profit-calculator.html">💰 Profit</a>
-            <a href="vat-calculator.html">💶 VAT</a>
-            <a href="shipping-estimator.html">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
-            <a href="currency-converter.html">💱 Currency</a>
-            <a href="size-converter.html">📏 Size</a>
-            <a href="keyword-expander.html">🔑 Keyword</a>
-            <a href="char-counter.html">🔤 Char Counter</a>
-            <a href="stock-calculator.html">📦 Stock</a>
-            <a href="volume-weight.html">📐 Vol Weight</a>
-            <a href="quote-calculator.html">💵 Quote Margin</a>
-            <a href="title-generator.html">📝 Title</a>
-            <a href="description-generator.html">📄 Description</a>
-            <a href="package-tracker.html">📦 Tracking</a>
-            <a href="discount-calculator.html">💴 Discount</a>
-            <a href="unit-converter.html">⚖️ Unit Convert</a>
-            <a href="time-calculator.html">⏰ Time Calc</a>
-            <a href="profit-rate.html">📈 Profit Rate</a>
-            <a href="text-cleaner.html">🧹 Text Clean</a>
-        </div>
+        <a href="index.html">🏠 Home</a>
+        <a href="profit-calculator.html">💰 Profit</a>
+        <a href="vat-calculator.html">💶 VAT</a>
+        <a href="shipping-estimator.html">🚚 Shipping</a>
+        <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+        <a href="currency-converter.html">💱 Currency</a>
+        <a href="size-converter.html">📏 Size</a>
+        <a href="keyword-expander.html">🔑 Keyword</a>
+        <a href="char-counter.html">🔤 Char Counter</a>
+        <a href="stock-calculator.html">📦 Stock</a>
+        <a href="volume-weight.html">📐 Vol Weight</a>
+        <a href="quote-calculator.html">💵 Quote Margin</a>
+        <a href="title-generator.html">📝 Title</a>
+        <a href="description-generator.html">📄 Description</a>
+        <a href="package-tracker.html">📦 Tracking</a>
+        <a href="discount-calculator.html">💴 Discount</a>
+        <a href="unit-converter.html">⚖️ Unit Convert</a>
+        <a href="time-calculator.html">⏰ Time Calc</a>
+        <a href="profit-rate.html">📈 Profit Rate</a>
+        <a href="text-cleaner.html">🧹 Text Clean</a>
     </nav>
 
     <div class="container">
-        <header class="page-header">
+        <div class="page-header">
             <h1>Character Counter</h1>
-            <p>Count characters to control text length</p>
-        </header>
-
+            <p>Count text characters</p>
+        </div>
         <div class="calculator-card">
             <div class="input-group">
-                <label>Your Text</label>
-                <textarea id="userText" rows="5" placeholder="Enter your text here"></textarea>
+                <label>Input Text</label>
+                <textarea id="text" rows="5" placeholder="Paste text here"></textarea>
             </div>
             <div class="btn-group">
                 <button class="btn" onclick="count()">Count</button>
                 <button class="btn btn-secondary" onclick="reset()">Reset</button>
             </div>
-            <div class="result-box" id="resultBox"></div>
+            <div class="result-box" id="res"></div>
         </div>
-
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="index.html" class="btn btn-secondary">Back to Home</a>
+        <div class="back-to-home">
+            <a href="index.html" class="btn">Back Home</a>
         </div>
     </div>
 
     <script>
-        function count() {
-            const text = document.getElementById('userText').value;
-            document.getElementById('resultBox').innerText = `Characters: ${text.length}`;
+        function toggleDarkMode(){
+            document.body.classList.toggle("dark-mode");
         }
-
-        function reset() {
-            document.getElementById('userText').value = '';
-            document.getElementById('resultBox').innerText = '';
+        function count(){
+            let txt = document.getElementById('text').value;
+            document.getElementById('res').innerText = "Total Characters: " + txt.length;
         }
-
-        let isDarkMode = localStorage.getItem('darkMode') === 'true';
-        function toggleDarkMode() {
-            isDarkMode = !isDarkMode;
-            localStorage.setItem('darkMode', isDarkMode);
-            document.body.classList.toggle('dark-mode', isDarkMode);
+        function reset(){
+            document.getElementById('text').value = "";
+            document.getElementById('res').innerText = "";
         }
-
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
-        }
-
-        window.onload = function() {
-            if (isDarkMode) {
-                document.body.classList.add('dark-mode');
-            }
-        };
     </script>
 </body>
 </html>
