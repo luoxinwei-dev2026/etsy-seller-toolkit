@@ -15,4 +15,51 @@
         <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
         <a href="currency-converter.html">💱 Currency</a>
         <a href="size-converter.html">📏 Size</a>
-        <a href="keyword-expander.html">
+        <a href="keyword-expander.html">🔑 Keyword</a>
+        <a href="char-counter.html">🔤 Char Counter</a>
+        <a href="stock-calculator.html">📦 Stock</a>
+        <a href="volume-weight.html">📐 Vol Weight</a>
+        <a href="quote-calculator.html">💵 Quote Margin</a>
+        <a href="title-generator.html">📝 Title</a>
+        <a href="description-generator.html">📄 Description</a>
+        <a href="package-tracker.html">📦 Tracking</a>
+        <a href="discount-calculator.html">💴 Discount</a>
+        <a href="unit-converter.html">⚖️ Unit Convert</a>
+        <a href="time-calculator.html">⏰ Time Calc</a>
+        <a href="profit-rate.html">📈 Profit Rate</a>
+        <a href="text-cleaner.html">🧹 Text Clean</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Package Tracker</h1>
+            <p>Query logistics information</p>
+        </div>
+        <div class="calculator-card">
+            <div class="input-group">
+                <label>Tracking Number</label>
+                <input type="text" id="trackNum" placeholder="Enter tracking number">
+            </div>
+            <div class="btn-group">
+                <button class="btn" onclick="query()">Query</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
+            </div>
+            <div class="result-box" id="res"></div>
+        </div>
+        <div class="back-to-home">
+            <a href="index.html" class="btn">Back Home</a>
+        </div>
+    </div>
+
+    <script>
+        function query(){
+            let num = document.getElementById('trackNum').value;
+            document.getElementById('res').innerText = `Tracking No.${num}: Package is in transit`;
+        }
+        function reset(){
+            document.getElementById('trackNum').value = "";
+            document.getElementById('res').innerText = "";
+        }
+    </script>
+</body>
+</html>
