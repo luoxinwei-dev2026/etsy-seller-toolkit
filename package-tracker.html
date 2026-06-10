@@ -3,64 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cross-border Package Tracker</title>
+    <title>Package Tracker | Track Your Cross-border Shipments</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; padding: 20px; }
+        body { background-color: #f0f4f8; color: #333; padding-top: 70px; }
+        nav { background-color: #3498db; padding: 15px; position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ecf0f1; }
         .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
         button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
         button:hover { background-color: #2980b9; }
         .result { margin-top: 30px; padding: 20px; background-color: #e8f4fd; border-radius: 5px; }
-        .status { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
-        .timeline { list-style: none; }
-        .timeline li { padding: 10px; border-left: 3px solid #3498db; padding-left: 15px; margin-bottom: 10px; position: relative; }
-        .timeline li::before { content: ''; position: absolute; left: -7px; top: 12px; width: 10px; height: 10px; border-radius: 50%; background: #3498db; }
         .back-link { display: block; text-align: center; margin-top: 20px; color: #3498db; text-decoration: none; }
+        footer { text-align: center; margin-top: 30px; color: #777; font-size: 0.9rem; padding: 20px; }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="profit-calculator.html">💰 Profit Calculator</a>
+        <a href="title-generator.html">📝 Title & Tags</a>
+        <a href="description-generator.html">🌐 Description</a>
+        <a href="package-tracker.html">📦 Package Tracker</a>
+    </nav>
+
     <div class="container">
-        <h1>Cross-border Package Tracker</h1>
-        <form id="trackerForm">
+        <h1>Package Tracker</h1>
+        <form id="trackForm">
+            <div class="form-group">
+                <label for="tracking">Tracking Number</label>
+                <input type="text" id="tracking" required>
+            </div>
             <div class="form-group">
                 <label for="carrier">Carrier</label>
                 <select id="carrier" required>
-                    <option value="USPS">USPS</option>
-                    <option value="DHL">DHL</option>
-                    <option value="Royal Mail">Royal Mail</option>
-                    <option value="FedEx">FedEx</option>
-                    <option value="UPS">UPS</option>
+                    <option value="usps">USPS</option>
+                    <option value="dhl">DHL</option>
+                    <option value="fedex">FedEx</option>
+                    <option value="ups">UPS</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="trackingNumber">Tracking Number</label>
-                <input type="text" id="trackingNumber" required placeholder="e.g., US123456789">
             </div>
             <button type="submit">Track Package</button>
         </form>
 
         <div class="result" id="result" style="display: none;">
-            <p class="status">Status: In Transit</p>
-            <ul class="timeline">
-                <li>Package picked up by carrier</li>
-                <li>Package departed origin facility</li>
-                <li>Package in transit to destination</li>
-                <li>Package arrived at destination facility</li>
-                <li>Out for delivery</li>
-                <li>Delivered (Estimated delivery: 3-5 business days)</li>
-            </ul>
+            <h3>Tracking Status:</h3>
+            <p id="trackOutput"></p>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 
+    <footer>
+        <p>© 2025 Etsy Seller Toolkit | All tools are free to use.</p>
+    </footer>
+
     <script>
-        document.getElementById('trackerForm').addEventListener('submit', function(e) {
+        document.getElementById('trackForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            const tracking = document.getElementById('tracking').value;
+            const carrier = document.getElementById('carrier').value;
+            // 模拟追踪结果
+            const status = `Package ${tracking} with ${carrier} is currently "In Transit". Estimated delivery: 3-5 business days.`;
+            document.getElementById('trackOutput').textContent = status;
             document.getElementById('result').style.display = 'block';
         });
     </script>
