@@ -40,3 +40,82 @@
             <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
             <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
             <a href="title-generator.html" data-lang="title">📝 Title</a>
+            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
+            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
+            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
+            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
+            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
+            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
+            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" data-lang="home">🏠 Home</a>
+            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
+            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
+            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
+            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
+            <a href="size-converter.html" data-lang="size">📏 Size</a>
+            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
+            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
+            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
+            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
+            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
+            <a href="title-generator.html" data-lang="title">📝 Title</a>
+            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
+            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
+            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
+            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
+            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
+            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
+            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h3 data-lang="p19title">Text Cleaner</h3>
+            <p data-lang="p19desc">Remove extra spaces and line breaks</p>
+        </header>
+        <div class="calculator-card">
+            <textarea id="rawText" placeholder="粘贴需要清理的文本"></textarea>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="cleanText()" id="btn_clean">清理文本</button>
+                <button class="btn btn-secondary" onclick="clearAll()" id="btn_clear">清空</button>
+            </div>
+            <textarea id="cleanedText" placeholder="清理后的文本" readonly></textarea>
+        </div>
+        <div style="text-align:center;margin:20px 0;">
+            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
+    </footer>
+
+    <script src="lang.js"></script>
+    <script>
+        const formLang = {
+            zh:{btn_clean:"清理文本",btn_clear:"清空"},
+            en:{btn_clean:"Clean Text",btn_clear:"Clear"}
+        };
+        const originSwitch = switchLang;
+        switchLang = function(lang){
+            originSwitch(lang);
+            document.getElementById("btn_clean").innerText = formLang[lang].btn_clean;
+            document.getElementById("btn_clear").innerText = formLang[lang].btn_clear;
+        };
+        function cleanText(){
+            let raw = document.getElementById("rawText").value;
+            // 去除多余空格、换行、制表符
+            let cleaned = raw.replace(/\s+/g, " ").trim();
+            document.getElementById("cleanedText").value = cleaned;
+        }
+        function clearAll(){
+            document.getElementById("rawText").value = "";
+            document.getElementById("cleanedText").value = "";
+        }
+    </script>
+</body>
+</html>
