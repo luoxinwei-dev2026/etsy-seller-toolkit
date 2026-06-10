@@ -37,7 +37,7 @@
         </div>
         <div class="calculator-card">
             <div class="input-group">
-                <label>Original Price ($)</label>
+                <label>Original Price</label>
                 <input type="number" id="oriPrice" placeholder="Enter original price">
             </div>
             <div class="input-group">
@@ -57,10 +57,10 @@
 
     <script>
         function calc(){
-            let ori = parseFloat(document.getElementById('oriPrice').value)||0;
-            let dis = parseFloat(document.getElementById('disRate').value)||0;
-            let finalPrice = ori * (1 - dis / 100);
-            document.getElementById('res').innerText = "Final Price: $" + finalPrice.toFixed(2);
+            let p = parseFloat(document.getElementById('oriPrice').value)||0;
+            let r = parseFloat(document.getElementById('disRate').value)||0;
+            let final = p * (1 - r / 100);
+            document.getElementById('res').innerText = `Final Price: $${final.toFixed(2)}`;
         }
         function reset(){
             document.getElementById('oriPrice').value = "";
