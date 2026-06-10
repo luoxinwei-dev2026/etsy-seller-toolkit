@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-language Product Description Generator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f4f8; color: #333; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px; }
+        button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
+        button:hover { background-color: #2980b9; }
+        .result { margin-top: 30px; padding: 20px; background-color: #e8f4fd; border-radius: 5px; }
+        .tab-container { display: flex; margin-bottom: 15px; border-bottom: 1px solid #ddd; }
+        .tab { padding: 10px 15px; cursor: pointer; background: #eee; border: none; border-radius: 5px 5px 0 0; margin-right: 5px; }
+        .tab.active { background: #3498db; color: white; }
+        .description { display: none; padding: 15px; background: white; border-radius: 5px; }
+        .description.active { display: block; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-language Description Generator</h1>
+        <form id="descForm">
+            <div class="form-group">
+                <label for="englishDesc">English Product Description</label>
+                <textarea id="englishDesc" required placeholder="Enter your product details here..."></textarea>
+            </div>
+            <button type="submit">Generate Translations</button>
+        </form>
+
+        <div class="result" id="result" style="display: none;">
+            <div class="tab-container">
+                <button class="tab active" data-lang="en">English</button>
+                <button class="tab" data-lang="fr">French</button>
+                <button class="tab" data-lang="de">German</button>
+                <button class="tab" data-lang="es">Spanish</button>
+                <button class="tab" data-lang="it">Italian</button>
+            </div>
+
+            <div class="description active" id="en-desc"></div>
+            <div class="description" id="fr-desc"></div>
+            <div class="description" id="de-desc"></div>
+            <div class="description" id="es-desc"></div>
+            <div class="description" id="it-desc"></div>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        document.getElementById('descForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const enDesc = document.getElementById('englishDesc').value;
+
+            // Mock translations (you can replace with real translations later)
+            document.getElementById('en-desc').textContent = enDesc;
+            document.getElementById('fr-desc').textContent = `Version française: ${enDesc}`;
+            document.getElementById('de-desc').textContent = `Deutsche Version: ${enDesc}`;
+            document.getElementById('es-desc').textContent = `Versión española: ${enDesc}`;
+            document.getElementById('it-desc').textContent = `Versione italiana: ${enDesc}`;
+
+            document.getElementById('result').style.display = 'block';
+        });
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.description').forEach(d => d.classList.remove('active'));
+
+                this.classList.add('active');
+                document.getElementById(`${this.dataset.lang}-desc`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

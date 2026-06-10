@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-border Package Tracker</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f4f8; color: #333; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
+        button:hover { background-color: #2980b9; }
+        .result { margin-top: 30px; padding: 20px; background-color: #e8f4fd; border-radius: 5px; }
+        .status { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
+        .timeline { list-style: none; }
+        .timeline li { padding: 10px; border-left: 3px solid #3498db; padding-left: 15px; margin-bottom: 10px; position: relative; }
+        .timeline li::before { content: ''; position: absolute; left: -7px; top: 12px; width: 10px; height: 10px; border-radius: 50%; background: #3498db; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cross-border Package Tracker</h1>
+        <form id="trackerForm">
+            <div class="form-group">
+                <label for="carrier">Carrier</label>
+                <select id="carrier" required>
+                    <option value="USPS">USPS</option>
+                    <option value="DHL">DHL</option>
+                    <option value="Royal Mail">Royal Mail</option>
+                    <option value="FedEx">FedEx</option>
+                    <option value="UPS">UPS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="trackingNumber">Tracking Number</label>
+                <input type="text" id="trackingNumber" required placeholder="e.g., US123456789">
+            </div>
+            <button type="submit">Track Package</button>
+        </form>
+
+        <div class="result" id="result" style="display: none;">
+            <p class="status">Status: In Transit</p>
+            <ul class="timeline">
+                <li>Package picked up by carrier</li>
+                <li>Package departed origin facility</li>
+                <li>Package in transit to destination</li>
+                <li>Package arrived at destination facility</li>
+                <li>Out for delivery</li>
+                <li>Delivered (Estimated delivery: 3-5 business days)</li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        document.getElementById('trackerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

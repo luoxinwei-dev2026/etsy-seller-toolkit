@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etsy Title & Tag Generator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f4f8; color: #333; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
+        button:hover { background-color: #2980b9; }
+        .result { margin-top: 30px; padding: 20px; background-color: #e8f4fd; border-radius: 5px; }
+        .title-result, .tags-result { margin-bottom: 20px; }
+        .title-result p, .tags-result p { margin: 10px 0; font-size: 1rem; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Etsy Title & Tag Generator</h1>
+        <form id="titleForm">
+            <div class="form-group">
+                <label for="category">Product Category (e.g., necklace, mug)</label>
+                <input type="text" id="category" required>
+            </div>
+            <div class="form-group">
+                <label for="material">Material (e.g., sterling silver, ceramic)</label>
+                <input type="text" id="material" required>
+            </div>
+            <div class="form-group">
+                <label for="style">Style (e.g., minimalist, boho)</label>
+                <input type="text" id="style" required>
+            </div>
+            <div class="form-group">
+                <label for="keywords">Main Keywords (comma separated)</label>
+                <input type="text" id="keywords" required>
+            </div>
+            <button type="submit">Generate Titles & Tags</button>
+        </form>
+
+        <div class="result" id="result" style="display: none;">
+            <div class="title-result">
+                <h3>SEO-Optimized Titles:</h3>
+                <p id="title1"></p>
+                <p id="title2"></p>
+                <p id="title3"></p>
+            </div>
+            <div class="tags-result">
+                <h3>Recommended Tags:</h3>
+                <p id="tags"></p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        document.getElementById('titleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const category = document.getElementById('category').value;
+            const material = document.getElementById('material').value;
+            const style = document.getElementById('style').value;
+            const keywords = document.getElementById('keywords').value.split(',').map(k => k.trim());
+
+            // Generate titles
+            document.getElementById('title1').textContent = `${style} ${material} ${category}, ${keywords.join(', ')} - Handmade & Unique`;
+            document.getElementById('title2').textContent = `${material} ${category} - ${style} Design, ${keywords.join(' | ')}`;
+            document.getElementById('title3').textContent = `${keywords[0]} ${category} - ${style} ${material}, Great Gift Idea`;
+
+            // Generate tags
+            const tags = [
+                style, material, category,
+                `${style}${category}`, `${material}${category}`,
+                `${keywords[0]}gift`, `${keywords[0]}handmade`,
+                `${category}forsale`, `${material}gift`,
+                `${style}gift`, `${keywords[0]}`, `${keywords[1]}`, `${keywords[2]}`
+            ].slice(0, 13).join(', ');
+            document.getElementById('tags').textContent = tags;
+
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
