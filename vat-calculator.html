@@ -5,140 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAT Calculator</title>
     <link rel="stylesheet" href="global.css">
-    <style>
-        .calculator-card{max-width:600px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-        .dark-mode .calculator-card{background:#2a2a2a;color:#fff;}
-        .input-group{margin-bottom:15px;}
-        .input-group label{display:block;margin-bottom:5px;font-weight:500;}
-        .input-group input{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:16px;}
-        .dark-mode .input-group input{background:#333;border-color:#444;color:#fff;}
-        .btn-group{display:flex;gap:10px;margin-top:20px;}
-        .btn{flex:1;padding:12px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
-        .btn-primary{background:#2196F3;color:#fff;}
-        .btn-secondary{background:#eee;color:#333;}
-        .dark-mode .btn-secondary{background:#444;color:#fff;}
-        .result-box{margin-top:25px;padding:15px;background:#f8f9fa;border-radius:8px;display:none;}
-        .dark-mode .result-box{background:#333;}
-        .result-item{display:flex;justify-content:space-between;margin-bottom:8px;}
-    </style>
 </head>
 <body>
     <div class="global-buttons">
-        <button class="global-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
-        <button class="global-btn" onclick="switchLang('en')">🇺🇸 English</button>
-        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 深色</button>
+        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </div>
 
     <nav>
         <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
         <div class="desktop-menu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
     </nav>
 
     <div class="container">
-        <header>
-            <h3 data-lang="p2title">VAT Calculator</h3>
-            <p data-lang="p2desc">Calculate European market sales tax</p>
+        <header class="page-header">
+            <h1>VAT Calculator</h1>
+            <p>Calculate VAT costs for European marketplaces</p>
         </header>
+
         <div class="calculator-card">
             <div class="input-group">
-                <label id="label_price">商品售价</label>
-                <input type="number" id="price" step="0.01" placeholder="输入金额">
+                <label>Product Selling Price (USD)</label>
+                <input type="number" id="sellingPrice" placeholder="Enter product selling price">
             </div>
             <div class="input-group">
-                <label id="label_rate">VAT税率 (%)</label>
-                <input type="number" id="rate" step="0.01" placeholder="例如 20">
+                <label>VAT Rate (%)</label>
+                <input type="number" id="vatRate" placeholder="Enter local VAT rate">
             </div>
             <div class="btn-group">
-                <button class="btn btn-primary" onclick="calcVat()" id="btn_calc">计算</button>
-                <button class="btn btn-secondary" onclick="resetVat()" id="btn_reset">重置</button>
+                <button class="btn" onclick="calculate()">Calculate</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
             </div>
-            <div class="result-box" id="resBox">
-                <div class="result-item"><span id="label_tax">税费：</span><span id="taxVal">0.00</span></div>
-                <div class="result-item"><span id="label_total">含税总价：</span><span id="totalVal">0.00</span></div>
-            </div>
+            <div class="result-box" id="resultBox"></div>
         </div>
-        <div style="text-align:center;margin:20px 0;">
-            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
         </div>
     </div>
 
-    <footer>
-        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
-    </footer>
-
-    <script src="lang.js"></script>
     <script>
-        const formLang = {
-            zh:{label_price:"商品售价",label_rate:"VAT税率 (%)",btn_calc:"计算",btn_reset:"重置",label_tax:"税费：",label_total:"含税总价："},
-            en:{label_price:"Product Price",label_rate:"VAT Rate (%)",btn_calc:"Calculate",btn_reset:"Reset",label_tax:"Tax：",label_total:"Total："}
-        };
-        const originSwitch = switchLang;
-        switchLang = function(lang){
-            originSwitch(lang);
-            document.getElementById("label_price").innerText = formLang[lang].label_price;
-            document.getElementById("label_rate").innerText = formLang[lang].label_rate;
-            document.getElementById("btn_calc").innerText = formLang[lang].btn_calc;
-            document.getElementById("btn_reset").innerText = formLang[lang].btn_reset;
-            document.getElementById("label_tax").innerText = formLang[lang].label_tax;
-            document.getElementById("label_total").innerText = formLang[lang].label_total;
-        };
-        function calcVat(){
-            let p = parseFloat(document.getElementById("price").value)||0;
-            let r = parseFloat(document.getElementById("rate").value)||0;
-            let tax = p * r / 100;
-            let total = p + tax;
-            document.getElementById("taxVal").innerText = tax.toFixed(2);
-            document.getElementById("totalVal").innerText = total.toFixed(2);
-            document.getElementById("resBox").style.display = "block";
+        function calculate() {
+            const sellingPrice = parseFloat(document.getElementById('sellingPrice').value);
+            const vatRate = parseFloat(document.getElementById('vatRate').value);
+
+            if (isNaN(sellingPrice) || isNaN(vatRate) || sellingPrice <= 0 || vatRate <= 0) {
+                document.getElementById('resultBox').innerText = 'Please enter valid numbers';
+                return;
+            }
+
+            const vatAmount = sellingPrice * (vatRate / 100);
+            const priceIncludingVAT = sellingPrice + vatAmount;
+
+            document.getElementById('resultBox').innerHTML = `
+                <p><strong>VAT Amount:</strong> $${vatAmount.toFixed(2)}</p>
+                <p><strong>Price Including VAT:</strong> $${priceIncludingVAT.toFixed(2)}</p>
+            `;
         }
-        function resetVat(){
-            document.getElementById("price").value = "";
-            document.getElementById("rate").value = "";
-            document.getElementById("resBox").style.display = "none";
+
+        function reset() {
+            document.querySelectorAll('input').forEach(input => input.value = '');
+            document.getElementById('resultBox').innerText = '';
         }
+
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            document.body.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        window.onload = function() {
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        };
     </script>
 </body>
 </html>
