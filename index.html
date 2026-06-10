@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,170 +8,167 @@
 </head>
 <body>
     <div class="global-buttons">
-        <button class="global-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
-        <button class="global-btn" onclick="switchLang('en')">🇺🇸 English</button>
-        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 深色</button>
+        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </div>
 
     <nav>
         <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
         <div class="desktop-menu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="descgen">📄 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="descgen">📄 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
     </nav>
 
     <div class="container">
         <header class="page-header">
-            <h1 data-lang="site_title">Etsy 卖家工具箱</h1>
-            <p data-lang="site_desc">一站式跨境电商运营工具，助你高效管理店铺</p>
+            <h1>Etsy Seller Toolkit</h1>
+            <p>All-in-One Tools for Cross-border Sellers</p>
         </header>
 
         <div class="tool-grid">
             <div class="tool-card">
-                <h3 data-lang="card_profit_title">💰 利润计算器</h3>
-                <p data-lang="card_profit_desc">包含手续费、运费，精准计算净利润与利润率</p>
+                <h3>💰 Profit Calculator</h3>
+                <p>Calculate net profit, gross and net margin accurately</p>
                 <a href="profit-calculator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_vat_title">💶 增值税计算器</h3>
-                <p data-lang="card_vat_desc">计算欧洲站点VAT税费，合规申报不踩坑</p>
+                <h3>💶 VAT Calculator</h3>
+                <p>Calculate VAT costs for European marketplaces</p>
                 <a href="vat-calculator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_shipping_title">🚚 运费估算器</h3>
-                <p data-lang="card_shipping_desc">根据重量、体积，预估国际物流成本</p>
+                <h3>🚚 Shipping Estimator</h3>
+                <p>Estimate international shipping costs easily</p>
                 <a href="shipping-estimator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_forbid_title">🚫 禁词检测器</h3>
-                <p data-lang="card_forbid_desc">检测商品标题/描述中的平台违禁词，降低违规风险</p>
+                <h3>🚫 Forbidden Words Checker</h3>
+                <p>Check sensitive words to avoid store violations</p>
                 <a href="forbidden-word-checker.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_currency_title">💱 实时汇率换算</h3>
-                <p data-lang="card_currency_desc">快速换算美元、欧元、英镑等主流货币</p>
+                <h3>💱 Currency Converter</h3>
+                <p>Convert multi-currency costs and selling prices</p>
                 <a href="currency-converter.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_size_title">📏 尺寸换算器</h3>
-                <p data-lang="card_size_desc">英寸/厘米、盎司/克等单位一键换算</p>
+                <h3>📏 Size Converter</h3>
+                <p>Quick conversion between Inch and Centimeter</p>
                 <a href="size-converter.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_keyword_title">🔑 关键词拓展</h3>
-                <p data-lang="card_keyword_desc">基于核心词拓展长尾关键词，优化搜索曝光</p>
+                <h3>🔑 Keyword Expander</h3>
+                <p>Generate long-tail keywords for better ranking</p>
                 <a href="keyword-expander.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_char_title">🔤 字符统计工具</h3>
-                <p data-lang="card_char_desc">统计文本字符数，适配各平台标题/描述限制</p>
+                <h3>🔤 Character Counter</h3>
+                <p>Count characters for title & description limits</p>
                 <a href="char-counter.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_stock_title">📦 库存计算器</h3>
-                <p data-lang="card_stock_desc">计算可售天数，及时补货</p>
+                <h3>📦 Stock Calculator</h3>
+                <p>Calculate available stock days for restocking</p>
                 <a href="stock-calculator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_volweight_title">📐 体积重量计算器</h3>
-                <p data-lang="card_volweight_desc">计算物流体积重，避免额外运费</p>
+                <h3>📐 Volume Weight Calculator</h3>
+                <p>Calculate volumetric weight to save shipping fee</p>
                 <a href="volume-weight.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_quote_title">💵 报价毛利计算器</h3>
-                <p data-lang="card_quote_desc">根据目标毛利反推产品售价</p>
+                <h3>💵 Quote Margin Calculator</h3>
+                <p>Calculate selling price based on target profit margin</p>
                 <a href="quote-calculator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_title_title">📝 标题生成器</h3>
-                <p data-lang="card_title_desc">一键生成合规高流量产品标题</p>
+                <h3>📝 Title Generator</h3>
+                <p>Create high-traffic compliant product titles</p>
                 <a href="title-generator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_descgen_title">📄 描述生成器</h3>
-                <p data-lang="card_descgen_desc">一键生成专业、合规的商品详情描述</p>
+                <h3>📄 Description Generator</h3>
+                <p>Generate professional product descriptions</p>
                 <a href="description-generator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_track_title">📦 物流追踪工具</h3>
-                <p data-lang="card_track_desc">查询包裹实时物流状态</p>
+                <h3>📦 Package Tracker</h3>
+                <p>Track real-time logistics status of parcels</p>
                 <a href="package-tracker.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_discount_title">💴 折扣计算器</h3>
-                <p data-lang="card_discount_desc">计算折扣价与最终到手价</p>
+                <h3>💴 Discount Calculator</h3>
+                <p>Calculate discount price and final amount</p>
                 <a href="discount-calculator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_unit_title">⚖️ 通用单位换算</h3>
-                <p data-lang="card_unit_desc">重量、长度、体积单位一键转换</p>
+                <h3>⚖️ General Unit Converter</h3>
+                <p>Convert weight, length and volume units</p>
                 <a href="unit-converter.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_time_title">⏰ 日期计算器</h3>
-                <p data-lang="card_time_desc">计算日期差、工作日天数</p>
+                <h3>⏰ Time Calculator</h3>
+                <p>Calculate date difference and working days</p>
                 <a href="time-calculator.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_profitrate_title">📈 利润率分析器</h3>
-                <p data-lang="card_profitrate_desc">快速分析整体利润与净利率</p>
+                <h3>📈 Profit Rate Analyzer</h3>
+                <p>Analyze overall profit and net profit rate</p>
                 <a href="profit-rate.html" class="btn open-tool-btn">Open Tool</a>
             </div>
             <div class="tool-card">
-                <h3 data-lang="card_textclean_title">🧹 文本清理工具</h3>
-                <p data-lang="card_textclean_desc">去除多余空格、换行符，整理文案</p>
+                <h3>🧹 Text Cleaner</h3>
+                <p>Remove extra spaces and line breaks from text</p>
                 <a href="text-cleaner.html" class="btn open-tool-btn">Open Tool</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
+        <p>© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
         <div style="margin-top: 15px; line-height: 1.6;">
-            <p style="font-weight: bold;" data-lang="version_title">Version Update Log</p>
-            <p data-lang="version_v10">V1.0.0 | 2026-06-10 : Basic functions launched, with e-commerce & logistics tools, bilingual & dark mode supported</p>
-            <p data-lang="version_v11">V1.1.0 | Pending : Optimize mobile layout, add form validation & operation tips</p>
+            <p style="font-weight: bold;">Version Update Log</p>
+            <p>V1.0.0 | 2026-06-10 : Basic functions launched, support dark mode</p>
         </div>
     </footer>
 
