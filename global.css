@@ -11,32 +11,25 @@ body {
     color: #1e293b;
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 56px;
+    /* 适配两行导航高度 */
+    padding-top: 90px;
 }
 
-/* 顶部导航 */
+/* 两行导航布局 */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background-color: #3b82f6;
-    padding: 0.75rem 1rem;
+    padding: 0.8rem 1rem;
     display: flex;
+    flex-wrap: wrap; /* 自动换行成多行 */
     align-items: center;
-    gap: 0.75rem;
-    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 0.6rem 1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     z-index: 100;
-    white-space: nowrap;
-}
-
-nav::-webkit-scrollbar {
-    height: 4px;
-}
-nav::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,0.3);
-    border-radius: 2px;
 }
 
 nav a {
@@ -45,6 +38,7 @@ nav a {
     font-size: 0.85rem;
     font-weight: 500;
     transition: opacity 0.2s;
+    padding: 4px 6px;
 }
 nav a:hover {
     opacity: 0.8;
