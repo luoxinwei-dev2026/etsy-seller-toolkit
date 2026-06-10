@@ -1,4 +1,4 @@
-/* 全局通用样式 + 右侧纵向按钮 + 暗色模式 */
+/* 全局通用样式 + 右侧纵向按钮 + 移动端汉堡菜单适配 */
 :root {
   --main-blue: #3498db;
   --bg-light: #f0f4f8;
@@ -49,9 +49,13 @@ nav {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 100;
 }
+nav .desktop-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 nav a {
   color: #fff;
-  margin: 0 8px;
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
@@ -60,15 +64,39 @@ nav a:hover {
   opacity: 0.85;
 }
 
-/* 双语+主题按钮区域 - 右侧纵向排列 */
+/* 移动端汉堡按钮 */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--main-blue);
+  padding: 15px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  gap: 12px;
+}
+.mobile-menu.active {
+  display: flex;
+}
+
+/* 右侧竖向切换按钮组（桌面端） */
 .global-buttons {
   position: fixed;
   top: 50%;
   right: 20px;
-  transform: translateY(-50%); /* 垂直居中 */
+  transform: translateY(-50%);
   z-index: 9999;
   display: flex;
-  flex-direction: column; /* 关键：改为纵向排列 */
+  flex-direction: column;
   gap: 10px;
   background-color: rgba(255, 255, 255, 0.95);
   padding: 15px;
@@ -96,12 +124,12 @@ nav a:hover {
   color: #ffffff;
 }
 
-/* 容器布局 */
+/* 主体容器 */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  padding-right: 120px; /* 给右侧按钮留空间，避免内容被挡住 */
+  padding-right: 120px;
 }
 header {
   text-align: center;
@@ -158,7 +186,23 @@ h1 {
   opacity: 0.9;
 }
 
-/* 页脚 + 版本日志 */
+/* 表单输入框通用适配 */
+input, select {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+[data-theme="dark"] input,
+[data-theme="dark"] select {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
+  border-color: #334155;
+}
+
+/* 页脚 */
 footer {
   margin-top: 50px;
   padding: 20px 10px;
@@ -166,7 +210,7 @@ footer {
   font-size: 13px;
   color: #666;
   border-top: 1px solid #eee;
-  padding-right: 120px; /* 页脚也给右侧按钮留空间 */
+  padding-right: 120px;
 }
 footer p {
   margin: 6px 0;
@@ -174,4 +218,31 @@ footer p {
 [data-theme="dark"] footer {
   color: #94a3b8;
   border-top-color: #334155;
+}
+
+/* 移动端 768px 以下全局适配 */
+@media (max-width: 768px) {
+  nav .desktop-menu {
+    display: none;
+  }
+  .hamburger-btn {
+    display: block;
+  }
+  .container {
+    padding-right: 20px;
+    padding-top: 80px;
+  }
+  .global-buttons {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    transform: none;
+    flex-direction: row;
+  }
+  footer {
+    padding-right: 20px;
+  }
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
 }
