@@ -1,4 +1,4 @@
-// 暗色模式逻辑
+// 暗色模式切换
 const themeBtn = document.getElementById('themeSwitch');
 let nowTheme = localStorage.getItem('siteTheme') || 'light';
 document.documentElement.setAttribute('data-theme', nowTheme);
@@ -12,7 +12,7 @@ themeBtn.addEventListener('click', () => {
   themeBtn.innerText = newTh === 'dark' ? '☀️ 浅色' : '🌙 深色';
 });
 
-// 双语词库（包含页面所有文字 + 版本日志）
+// 双语词库
 const langData = {
   en: {
     home:"🏠 Home",profit:"💰 Profit",vat:"💶 VAT",shipping:"🚚 Shipping",forbid:"🚫 Forbidden Words",currency:"💱 Currency",size:"📏 Size",keyword:"🔑 Keyword",char:"🔤 Char Counter",stock:"📦 Stock",volweight:"📐 Vol Weight",quote:"💵 Quote Margin",title:"📝 Title",desc:"🌐 Description",track:"📦 Tracking",
@@ -76,7 +76,7 @@ const langData = {
   }
 };
 
-// 语言切换函数
+// 语言切换
 function switchLang(lang) {
   localStorage.setItem('siteLang', lang);
   document.querySelectorAll('[data-lang]').forEach(el => {
@@ -85,6 +85,12 @@ function switchLang(lang) {
   });
 }
 
-// 页面初始化读取语言
+// 移动端汉堡菜单展开/收起
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('active');
+}
+
+// 初始化语言
 let initLang = localStorage.getItem('siteLang') || 'en';
 switchLang(initLang);
