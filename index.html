@@ -6,8 +6,12 @@
     <title>All-in-One Tools for Etsy & Cross-border Sellers</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; line-height: 1.6; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; }
+        body { background-color: #f0f4f8; color: #333; line-height: 1.6; padding-top: 70px; }
+        /* 导航栏样式 */
+        nav { background-color: #3498db; padding: 15px; position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ecf0f1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         header { text-align: center; margin-bottom: 40px; }
         h1 { color: #2c3e50; margin-bottom: 10px; }
         .intro { font-size: 1.1rem; color: #555; }
@@ -18,10 +22,19 @@
         .tool-card p { color: #666; margin-bottom: 20px; }
         .btn { display: inline-block; background-color: #3498db; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
         .btn:hover { background-color: #2980b9; }
-        footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.9rem; }
+        footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.9rem; padding: 20px; }
     </style>
 </head>
 <body>
+    <!-- 导航栏 -->
+    <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="profit-calculator.html">💰 Profit Calculator</a>
+        <a href="title-generator.html">📝 Title & Tags</a>
+        <a href="description-generator.html">🌐 Description</a>
+        <a href="package-tracker.html">📦 Package Tracker</a>
+    </nav>
+
     <div class="container">
         <header>
             <h1>All-in-One Tools for Etsy & Cross-border Sellers</h1>
@@ -34,19 +47,16 @@
                 <p>Calculate your profit margin including fees and shipping costs.</p>
                 <a href="profit-calculator.html" class="btn">Open Tool</a>
             </div>
-
             <div class="tool-card">
                 <h3>Title & Tag Generator</h3>
                 <p>Create SEO-optimized titles and high-intent tags for your listings.</p>
                 <a href="title-generator.html" class="btn">Open Tool</a>
             </div>
-
             <div class="tool-card">
                 <h3>Multi-language Description Generator</h3>
                 <p>Generate professional product descriptions in 5 languages.</p>
                 <a href="description-generator.html" class="btn">Open Tool</a>
             </div>
-
             <div class="tool-card">
                 <h3>Cross-border Package Tracker</h3>
                 <p>Track your shipments with mock data for all major carriers.</p>
@@ -55,7 +65,7 @@
         </div>
 
         <footer>
-            <p>© 2025 Etsy Seller Toolkit. All tools are free to use.</p>
+            <p>© 2025 Etsy Seller Toolkit | All tools are free to use. Built with ❤️ for cross-border sellers.</p>
         </footer>
     </div>
 </body>
