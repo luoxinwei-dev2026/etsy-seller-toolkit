@@ -8,118 +8,65 @@
 </head>
 <body>
     <div class="global-buttons">
-        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        <button class="global-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </div>
 
     <nav>
-        <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
-        <div class="desktop-menu">
-            <a href="index.html">🏠 Home</a>
-            <a href="profit-calculator.html">💰 Profit</a>
-            <a href="vat-calculator.html">💶 VAT</a>
-            <a href="shipping-estimator.html">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
-            <a href="currency-converter.html">💱 Currency</a>
-            <a href="size-converter.html">📏 Size</a>
-            <a href="keyword-expander.html">🔑 Keyword</a>
-            <a href="char-counter.html">🔤 Char Counter</a>
-            <a href="stock-calculator.html">📦 Stock</a>
-            <a href="volume-weight.html">📐 Vol Weight</a>
-            <a href="quote-calculator.html">💵 Quote Margin</a>
-            <a href="title-generator.html">📝 Title</a>
-            <a href="description-generator.html">📄 Description</a>
-            <a href="package-tracker.html">📦 Tracking</a>
-            <a href="discount-calculator.html">💴 Discount</a>
-            <a href="unit-converter.html">⚖️ Unit Convert</a>
-            <a href="time-calculator.html">⏰ Time Calc</a>
-            <a href="profit-rate.html">📈 Profit Rate</a>
-            <a href="text-cleaner.html">🧹 Text Clean</a>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html">🏠 Home</a>
-            <a href="profit-calculator.html">💰 Profit</a>
-            <a href="vat-calculator.html">💶 VAT</a>
-            <a href="shipping-estimator.html">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
-            <a href="currency-converter.html">💱 Currency</a>
-            <a href="size-converter.html">📏 Size</a>
-            <a href="keyword-expander.html">🔑 Keyword</a>
-            <a href="char-counter.html">🔤 Char Counter</a>
-            <a href="stock-calculator.html">📦 Stock</a>
-            <a href="volume-weight.html">📐 Vol Weight</a>
-            <a href="quote-calculator.html">💵 Quote Margin</a>
-            <a href="title-generator.html">📝 Title</a>
-            <a href="description-generator.html">📄 Description</a>
-            <a href="package-tracker.html">📦 Tracking</a>
-            <a href="discount-calculator.html">💴 Discount</a>
-            <a href="unit-converter.html">⚖️ Unit Convert</a>
-            <a href="time-calculator.html">⏰ Time Calc</a>
-            <a href="profit-rate.html">📈 Profit Rate</a>
-            <a href="text-cleaner.html">🧹 Text Clean</a>
-        </div>
+        <a href="index.html">🏠 Home</a>
+        <a href="profit-calculator.html">💰 Profit</a>
+        <a href="vat-calculator.html">💶 VAT</a>
+        <a href="shipping-estimator.html">🚚 Shipping</a>
+        <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+        <a href="currency-converter.html">💱 Currency</a>
+        <a href="size-converter.html">📏 Size</a>
+        <a href="keyword-expander.html">🔑 Keyword</a>
+        <a href="char-counter.html">🔤 Char Counter</a>
+        <a href="stock-calculator.html">📦 Stock</a>
+        <a href="volume-weight.html">📐 Vol Weight</a>
+        <a href="quote-calculator.html">💵 Quote Margin</a>
+        <a href="title-generator.html">📝 Title</a>
+        <a href="description-generator.html">📄 Description</a>
+        <a href="package-tracker.html">📦 Tracking</a>
+        <a href="discount-calculator.html">💴 Discount</a>
+        <a href="unit-converter.html">⚖️ Unit Convert</a>
+        <a href="time-calculator.html">⏰ Time Calc</a>
+        <a href="profit-rate.html">📈 Profit Rate</a>
+        <a href="text-cleaner.html">🧹 Text Clean</a>
     </nav>
 
     <div class="container">
-        <header class="page-header">
+        <div class="page-header">
             <h1>Title Generator</h1>
-            <p>Generate optimized product titles</p>
-        </header>
-
+            <p>Generate product titles</p>
+        </div>
         <div class="calculator-card">
             <div class="input-group">
-                <label>Main Keyword</label>
-                <input type="text" id="mainKey" placeholder="Enter main product keyword">
-            </div>
-            <div class="input-group">
-                <label>Features</label>
-                <input type="text" id="feature" placeholder="Separate features with comma">
+                <label>Core Word</label>
+                <input type="text" id="core" placeholder="Enter core word">
             </div>
             <div class="btn-group">
                 <button class="btn" onclick="generate()">Generate</button>
                 <button class="btn btn-secondary" onclick="reset()">Reset</button>
             </div>
-            <div class="result-box" id="resultBox"></div>
+            <div class="result-box" id="res"></div>
         </div>
-
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="index.html" class="btn btn-secondary">Back to Home</a>
+        <div class="back-to-home">
+            <a href="index.html" class="btn">Back Home</a>
         </div>
     </div>
 
     <script>
-        function generate() {
-            const main = document.getElementById('mainKey').value.trim();
-            const feat = document.getElementById('feature').value.trim();
-            if (!main) {
-                document.getElementById('resultBox').innerText = 'Please enter main keyword';
-                return;
-            }
-            let title = main;
-            if (feat) title += ' | ' + feat;
-            document.getElementById('resultBox').innerText = 'Suggested Title: ' + title;
+        function toggleDarkMode(){
+            document.body.classList.toggle("dark-mode");
         }
-
-        function reset() {
-            document.querySelectorAll('input').forEach(input => input.value = '');
-            document.getElementById('resultBox').innerText = '';
+        function generate(){
+            let word = document.getElementById('core').value;
+            document.getElementById('res').innerText = "Title: Premium " + word + ", High Quality & Durable";
         }
-
-        let isDarkMode = localStorage.getItem('darkMode') === 'true';
-        function toggleDarkMode() {
-            isDarkMode = !isDarkMode;
-            localStorage.setItem('darkMode', isDarkMode);
-            document.body.classList.toggle('dark-mode', isDarkMode);
+        function reset(){
+            document.getElementById('core').value = "";
+            document.getElementById('res').innerText = "";
         }
-
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
-        }
-
-        window.onload = function() {
-            if (isDarkMode) {
-                document.body.classList.add('dark-mode');
-            }
-        };
     </script>
 </body>
 </html>
