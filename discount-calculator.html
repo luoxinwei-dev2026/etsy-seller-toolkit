@@ -5,140 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discount Calculator</title>
     <link rel="stylesheet" href="global.css">
-    <style>
-        .calculator-card{max-width:600px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-        .dark-mode .calculator-card{background:#2a2a2a;color:#fff;}
-        .input-group{margin-bottom:15px;}
-        .input-group label{display:block;margin-bottom:5px;font-weight:500;}
-        .input-group input{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:16px;}
-        .dark-mode .input-group input{background:#333;border-color:#444;color:#fff;}
-        .btn-group{display:flex;gap:10px;margin-top:20px;}
-        .btn{flex:1;padding:12px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
-        .btn-primary{background:#2196F3;color:#fff;}
-        .btn-secondary{background:#eee;color:#333;}
-        .dark-mode .btn-secondary{background:#444;color:#fff;}
-        .result-box{margin-top:25px;padding:15px;background:#f8f9fa;border-radius:8px;display:none;}
-        .dark-mode .result-box{background:#333;}
-        .result-item{display:flex;justify-content:space-between;margin-bottom:8px;}
-    </style>
 </head>
 <body>
     <div class="global-buttons">
-        <button class="global-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
-        <button class="global-btn" onclick="switchLang('en')">🇺🇸 English</button>
-        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 深色</button>
+        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </div>
 
     <nav>
         <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
         <div class="desktop-menu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
     </nav>
 
     <div class="container">
-        <header>
-            <h3 data-lang="p15title">Discount Calculator</h3>
-            <p data-lang="p15desc">Calculate discount and final price</p>
+        <header class="page-header">
+            <h1>Discount Calculator</h1>
+            <p>Calculate discount price and savings</p>
         </header>
+
         <div class="calculator-card">
             <div class="input-group">
-                <label id="label_ori">原价</label>
-                <input type="number" id="oriPrice" step="0.01" placeholder="输入原价">
+                <label>Original Price ($)</label>
+                <input type="number" id="originalPrice" placeholder="Enter original price">
             </div>
             <div class="input-group">
-                <label id="label_disc">折扣(折)</label>
-                <input type="number" id="disc" step="0.1" placeholder="例如 8.5">
+                <label>Discount (%)</label>
+                <input type="number" id="discountRate" placeholder="Enter discount percentage">
             </div>
             <div class="btn-group">
-                <button class="btn btn-primary" onclick="calcDisc()" id="btn_calc">计算</button>
-                <button class="btn btn-secondary" onclick="resetDisc()" id="btn_reset">重置</button>
+                <button class="btn" onclick="calculate()">Calculate</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
             </div>
-            <div class="result-box" id="resBox">
-                <div class="result-item"><span id="label_save">优惠金额：</span><span id="saveVal">0.00</span></div>
-                <div class="result-item"><span id="label_now">折后价：</span><span id="nowVal">0.00</span></div>
-            </div>
+            <div class="result-box" id="resultBox"></div>
         </div>
-        <div style="text-align:center;margin:20px 0;">
-            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
         </div>
     </div>
 
-    <footer>
-        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
-    </footer>
-
-    <script src="lang.js"></script>
     <script>
-        const formLang = {
-            zh:{label_ori:"原价",label_disc:"折扣(折)",btn_calc:"计算",btn_reset:"重置",label_save:"优惠金额：",label_now:"折后价："},
-            en:{label_ori:"Original Price",label_disc:"Discount",btn_calc:"Calculate",btn_reset:"Reset",label_save:"Saved：",label_now:"Final Price："}
-        };
-        const originSwitch = switchLang;
-        switchLang = function(lang){
-            originSwitch(lang);
-            document.getElementById("label_ori").innerText = formLang[lang].label_ori;
-            document.getElementById("label_disc").innerText = formLang[lang].label_disc;
-            document.getElementById("btn_calc").innerText = formLang[lang].btn_calc;
-            document.getElementById("btn_reset").innerText = formLang[lang].btn_reset;
-            document.getElementById("label_save").innerText = formLang[lang].label_save;
-            document.getElementById("label_now").innerText = formLang[lang].label_now;
-        };
-        function calcDisc(){
-            let ori = parseFloat(document.getElementById("oriPrice").value)||0;
-            let d = parseFloat(document.getElementById("disc").value)||10;
-            let now = ori * d / 10;
-            let save = ori - now;
-            document.getElementById("saveVal").innerText = save.toFixed(2);
-            document.getElementById("nowVal").innerText = now.toFixed(2);
-            document.getElementById("resBox").style.display = "block";
+        function calculate() {
+            const original = parseFloat(document.getElementById('originalPrice').value);
+            const discount = parseFloat(document.getElementById('discountRate').value);
+
+            if (isNaN(original) || isNaN(discount) || original <= 0 || discount < 0 || discount > 100) {
+                document.getElementById('resultBox').innerText = 'Please enter valid numbers';
+                return;
+            }
+            const finalPrice = original * (1 - discount / 100);
+            const saveMoney = original - finalPrice;
+            document.getElementById('resultBox').innerHTML = `
+                <p><strong>Final Price:</strong> $${finalPrice.toFixed(2)}</p>
+                <p><strong>You Save:</strong> $${saveMoney.toFixed(2)}</p>
+            `;
         }
-        function resetDisc(){
-            document.getElementById("oriPrice").value = "";
-            document.getElementById("disc").value = "";
-            document.getElementById("resBox").style.display = "none";
+
+        function reset() {
+            document.querySelectorAll('input').forEach(input => input.value = '');
+            document.getElementById('resultBox').innerText = '';
         }
+
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            document.body.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        window.onload = function() {
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        };
     </script>
 </body>
 </html>
