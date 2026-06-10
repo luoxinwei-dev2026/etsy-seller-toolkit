@@ -11,13 +11,7 @@ body {
     color: #1e293b;
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 56px; /* 给导航栏留空间 */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode {
-    background-color: #0f172a;
-    color: #e2e8f0;
+    padding-top: 56px;
 }
 
 /* 顶部导航 */
@@ -26,7 +20,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #3b82f6; /* 柔和浅蓝 */
+    background-color: #3b82f6;
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
@@ -56,31 +50,6 @@ nav a:hover {
     opacity: 0.8;
 }
 
-/* 深色模式按钮：下移到导航栏下方，不重叠 */
-.global-buttons {
-    position: fixed;
-    top: 65px; /* 导航栏高度+10px，避开重叠 */
-    right: 10px;
-    z-index: 101;
-}
-.global-btn {
-    background: white;
-    border: 1px solid #e2e8f0;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-body.dark-mode .global-btn {
-    background: #1e293b;
-    color: white;
-    border-color: #475569;
-}
-
 /* 页面容器 */
 .container {
     max-width: 600px;
@@ -99,9 +68,6 @@ body.dark-mode .global-btn {
 .page-header p {
     color: #64748b;
 }
-body.dark-mode .page-header p {
-    color: #94a3b8;
-}
 
 /* 卡片样式 */
 .calculator-card {
@@ -110,9 +76,6 @@ body.dark-mode .page-header p {
     padding: 2rem;
     box-shadow: 0 4px 16px rgba(0,0,0,0.05);
     margin-bottom: 2rem;
-}
-body.dark-mode .calculator-card {
-    background: #1e293b;
 }
 
 .input-group {
@@ -131,13 +94,6 @@ body.dark-mode .calculator-card {
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     font-size: 1rem;
-}
-body.dark-mode .input-group input,
-body.dark-mode .input-group select,
-body.dark-mode .input-group textarea {
-    background: #334155;
-    border-color: #475569;
-    color: white;
 }
 
 /* 按钮组 */
@@ -173,9 +129,6 @@ body.dark-mode .input-group textarea {
     background: #f1f5f9;
     border-radius: 8px;
     font-weight: 500;
-}
-body.dark-mode .result-box {
-    background: #334155;
 }
 
 /* 底部返回 */
