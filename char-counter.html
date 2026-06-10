@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Char Counter</title>
     <link rel="stylesheet" href="global.css">
+    <style>
+        .calculator-card{max-width:600px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+        .dark-mode .calculator-card{background:#2a2a2a;color:#fff;}
+        textarea{width:100%;height:180px;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:16px;resize:none;}
+        .dark-mode textarea{background:#333;border-color:#444;color:#fff;}
+        .btn-group{display:flex;gap:10px;margin-top:15px;}
+        .btn{flex:1;padding:12px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
+        .btn-primary{background:#2196F3;color:#fff;}
+        .btn-secondary{background:#eee;color:#333;}
+        .dark-mode .btn-secondary{background:#444;color:#fff;}
+        .result-box{margin-top:20px;padding:15px;background:#f8f9fa;border-radius:8px;}
+        .dark-mode .result-box{background:#333;}
+    </style>
 </head>
 <body>
     <div class="global-buttons">
         <button class="global-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
         <button class="global-btn" onclick="switchLang('en')">🇺🇸 English</button>
-        <button class="global-btn" id="themeSwitch">🌙 深色</button>
+        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 深色</button>
     </div>
 
     <nav>
@@ -66,22 +79,46 @@
             <h3 data-lang="p8title">Char Counter</h3>
             <p data-lang="p8desc">Count text characters quickly</p>
         </header>
-        <div style="text-align:center;padding:40px 0;">
-            <p>功能开发区域</p>
-            <br>
-            <a href="index.html" class="btn">返回首页</a>
+        <div class="calculator-card">
+            <textarea id="txt" placeholder="粘贴文本内容"></textarea>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="countChar()" id="btn_count">统计字符</button>
+                <button class="btn btn-secondary" onclick="clearTxt()" id="btn_clear">清空</button>
+            </div>
+            <div class="result-box">
+                <span id="res_text">总字符数：0</span>
+            </div>
+        </div>
+        <div style="text-align:center;margin:20px 0;">
+            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
         </div>
     </div>
 
     <footer>
-        <p data-lang="copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
-        <div style="margin-top: 15px; line-height: 1.6;">
-            <p style="font-weight: bold;" data-lang="versionTitle">Version Update Log</p>
-            <p data-lang="v10">V1.0.0 | 2026-06-10 : Basic functions launched, with e-commerce & logistics tools, bilingual & dark mode supported</p>
-            <p data-lang="v11">V1.1.0 | Pending : Optimize mobile layout, add form validation & operation tips</p>
-        </div>
+        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
     </footer>
 
     <script src="lang.js"></script>
+    <script>
+        const formLang = {
+            zh:{btn_count:"统计字符",btn_clear:"清空",res_text:"总字符数："},
+            en:{btn_count:"Count",btn_clear:"Clear",res_text:"Total Chars："}
+        };
+        const originSwitch = switchLang;
+        switchLang = function(lang){
+            originSwitch(lang);
+            document.getElementById("btn_count").innerText = formLang[lang].btn_count;
+            document.getElementById("btn_clear").innerText = formLang[lang].btn_clear;
+            document.getElementById("res_text").innerText = formLang[lang].res_text;
+        };
+        function countChar(){
+            let s = document.getElementById("txt").value;
+            document.getElementById("res_text").innerText = formLang[localStorage.getItem('preferredLang')||'zh'].res_text + s.length;
+        }
+        function clearTxt(){
+            document.getElementById("txt").value = "";
+            countChar();
+        }
+    </script>
 </body>
 </html>
