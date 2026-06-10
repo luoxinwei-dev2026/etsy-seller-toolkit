@@ -5,221 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profit Calculator</title>
     <link rel="stylesheet" href="global.css">
-    <style>
-        .calculator-card{max-width:600px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-        .dark-mode .calculator-card{background:#2a2a2a;color:#fff;}
-        .input-group{margin-bottom:15px;}
-        .input-group label{display:block;margin-bottom:5px;font-weight:500;}
-        .input-group input{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:16px;}
-        .dark-mode .input-group input{background:#333;border-color:#444;color:#fff;}
-        .btn-group{display:flex;gap:10px;margin-top:20px;}
-        .btn{flex:1;padding:12px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
-        .btn-primary{background:#2196F3;color:#fff;}
-        .btn-secondary{background:#eee;color:#333;}
-        .dark-mode .btn-secondary{background:#444;color:#fff;}
-        .result-box{margin-top:25px;padding:15px;background:#f8f9fa;border-radius:8px;display:none;}
-        .dark-mode .result-box{background:#333;}
-        .result-item{display:flex;justify-content:space-between;margin-bottom:8px;}
-    </style>
 </head>
 <body>
     <div class="global-buttons">
-        <button class="global-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
-        <button class="global-btn" onclick="switchLang('en')">🇺🇸 English</button>
-        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 深色</button>
+        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </div>
 
     <nav>
         <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
         <div class="desktop-menu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
     </nav>
 
     <div class="container">
-        <header>
-            <h3 data-lang="p1title">Profit Calculator</h3>
-            <p data-lang="p1desc">Calculate net profit and margin including fees and shipping</p>
+        <header class="page-header">
+            <h1>Profit Calculator</h1>
+            <p>Calculate net profit and margin including fees and shipping</p>
         </header>
+
         <div class="calculator-card">
             <div class="input-group">
-                <label id="label_price">售价 (USD)</label>
-                <input type="number" id="price" placeholder="输入商品售价" step="0.01">
+                <label>Selling Price (USD)</label>
+                <input type="number" id="sellingPrice" placeholder="Enter product selling price">
             </div>
             <div class="input-group">
-                <label id="label_cost">产品成本 (USD)</label>
-                <input type="number" id="cost" placeholder="输入采购成本" step="0.01">
+                <label>Product Cost (USD)</label>
+                <input type="number" id="productCost" placeholder="Enter sourcing cost">
             </div>
             <div class="input-group">
-                <label id="label_fee">平台费率 (%)</label>
-                <input type="number" id="fee" placeholder="输入平台佣金比例" step="0.01">
+                <label>Platform Fee (%)</label>
+                <input type="number" id="platformFee" placeholder="Enter platform commission rate">
             </div>
             <div class="input-group">
-                <label id="label_shipping">运费 (USD)</label>
-                <input type="number" id="shipping" placeholder="输入国际运费" step="0.01">
+                <label>Shipping Cost (USD)</label>
+                <input type="number" id="shippingCost" placeholder="Enter international shipping cost">
             </div>
             <div class="input-group">
-                <label id="label_ads">广告费 (USD)</label>
-                <input type="number" id="ads" placeholder="输入广告成本" step="0.01">
+                <label>Ad Cost (USD)</label>
+                <input type="number" id="adCost" placeholder="Enter advertising cost">
             </div>
-
             <div class="btn-group">
-                <button class="btn btn-primary" onclick="calculateProfit()" id="btn_calculate">计算利润</button>
-                <button class="btn btn-secondary" onclick="resetForm()" id="btn_reset">重置</button>
+                <button class="btn" onclick="calculate()">Calculate</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
             </div>
-
-            <div class="result-box" id="resultBox">
-                <div class="result-item">
-                    <span id="label_netProfit">净利润:</span>
-                    <span id="netProfit">$0.00</span>
-                </div>
-                <div class="result-item">
-                    <span id="label_grossMargin">毛利率:</span>
-                    <span id="grossMargin">0%</span>
-                </div>
-                <div class="result-item">
-                    <span id="label_netMargin">净利率:</span>
-                    <span id="netMargin">0%</span>
-                </div>
-            </div>
+            <div class="result-box" id="resultBox"></div>
         </div>
 
-        <div style="text-align:center; margin:20px 0;">
-            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
         </div>
     </div>
 
-    <footer>
-        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
-        <div style="margin-top: 15px; line-height: 1.6;">
-            <p style="font-weight: bold;" data-lang="version_title">Version Update Log</p>
-            <p data-lang="version_v10">V1.0.0 | 2026-06-10 : Basic functions launched, with e-commerce & logistics tools, bilingual & dark mode supported</p>
-            <p data-lang="version_v11">V1.1.0 | Pending : Optimize mobile layout, add form validation & operation tips</p>
-        </div>
-    </footer>
-
-    <script src="lang.js"></script>
     <script>
-        // 表单文本多语言配置
-        const translationsForm = {
-            zh: {
-                label_price: "售价 (USD)",
-                label_cost: "产品成本 (USD)",
-                label_fee: "平台费率 (%)",
-                label_shipping: "运费 (USD)",
-                label_ads: "广告费 (USD)",
-                btn_calculate: "计算利润",
-                btn_reset: "重置",
-                label_netProfit: "净利润:",
-                label_grossMargin: "毛利率:",
-                label_netMargin: "净利率:"
-            },
-            en: {
-                label_price: "Price (USD)",
-                label_cost: "Cost (USD)",
-                label_fee: "Platform Fee (%)",
-                label_shipping: "Shipping (USD)",
-                label_ads: "Ads Cost (USD)",
-                btn_calculate: "Calculate",
-                btn_reset: "Reset",
-                label_netProfit: "Net Profit:",
-                label_grossMargin: "Gross Margin:",
-                label_netMargin: "Net Margin:"
-            }
-        };
+        function calculate() {
+            const sellingPrice = parseFloat(document.getElementById('sellingPrice').value);
+            const productCost = parseFloat(document.getElementById('productCost').value);
+            const platformFee = parseFloat(document.getElementById('platformFee').value);
+            const shippingCost = parseFloat(document.getElementById('shippingCost').value);
+            const adCost = parseFloat(document.getElementById('adCost').value);
 
-        // 重写 switchLang 函数，加入表单文本更新
-        const originalSwitchLang = window.switchLang;
-        window.switchLang = function(lang) {
-            originalSwitchLang(lang);
-            // 更新表单文本
-            document.getElementById('label_price').textContent = translationsForm[lang].label_price;
-            document.getElementById('label_cost').textContent = translationsForm[lang].label_cost;
-            document.getElementById('label_fee').textContent = translationsForm[lang].label_fee;
-            document.getElementById('label_shipping').textContent = translationsForm[lang].label_shipping;
-            document.getElementById('label_ads').textContent = translationsForm[lang].label_ads;
-            document.getElementById('btn_calculate').textContent = translationsForm[lang].btn_calculate;
-            document.getElementById('btn_reset').textContent = translationsForm[lang].btn_reset;
-            document.getElementById('label_netProfit').textContent = translationsForm[lang].label_netProfit;
-            document.getElementById('label_grossMargin').textContent = translationsForm[lang].label_grossMargin;
-            document.getElementById('label_netMargin').textContent = translationsForm[lang].label_netMargin;
-        };
-
-        // 利润计算函数
-        function calculateProfit() {
-            const price = parseFloat(document.getElementById('price').value) || 0;
-            const cost = parseFloat(document.getElementById('cost').value) || 0;
-            const feeRate = parseFloat(document.getElementById('fee').value) || 0;
-            const shipping = parseFloat(document.getElementById('shipping').value) || 0;
-            const ads = parseFloat(document.getElementById('ads').value) || 0;
-
-            if (price === 0) {
-                alert(navigator.language.includes('zh') ? "请输入商品售价" : "Please enter product price");
+            if ([sellingPrice, productCost, platformFee, shippingCost, adCost].some(isNaN)) {
+                document.getElementById('resultBox').innerText = 'Please fill in all valid numbers';
                 return;
             }
 
-            const platformFee = price * (feeRate / 100);
-            const totalCost = cost + shipping + ads + platformFee;
-            const netProfit = price - totalCost;
-            const grossMargin = ((price - cost) / price) * 100;
-            const netMargin = (netProfit / price) * 100;
+            const platformFeeAmount = sellingPrice * (platformFee / 100);
+            const totalCost = productCost + platformFeeAmount + shippingCost + adCost;
+            const netProfit = sellingPrice - totalCost;
+            const profitMargin = (netProfit / sellingPrice) * 100;
 
-            document.getElementById('netProfit').textContent = `$${netProfit.toFixed(2)}`;
-            document.getElementById('grossMargin').textContent = `${grossMargin.toFixed(1)}%`;
-            document.getElementById('netMargin').textContent = `${netMargin.toFixed(1)}%`;
-            document.getElementById('resultBox').style.display = 'block';
+            document.getElementById('resultBox').innerHTML = `
+                <p><strong>Net Profit:</strong> $${netProfit.toFixed(2)}</p>
+                <p><strong>Profit Margin:</strong> ${profitMargin.toFixed(2)}%</p>
+            `;
         }
 
-        // 重置表单
-        function resetForm() {
-            document.getElementById('price').value = '';
-            document.getElementById('cost').value = '';
-            document.getElementById('fee').value = '';
-            document.getElementById('shipping').value = '';
-            document.getElementById('ads').value = '';
-            document.getElementById('resultBox').style.display = 'none';
+        function reset() {
+            document.querySelectorAll('input').forEach(input => input.value = '');
+            document.getElementById('resultBox').innerText = '';
         }
+
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            document.body.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        window.onload = function() {
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        };
     </script>
 </body>
 </html>
