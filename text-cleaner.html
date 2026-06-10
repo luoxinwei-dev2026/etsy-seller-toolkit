@@ -5,117 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Cleaner</title>
     <link rel="stylesheet" href="global.css">
-    <style>
-        .calculator-card{max-width:600px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-        .dark-mode .calculator-card{background:#2a2a2a;color:#fff;}
-        textarea{width:100%;height:160px;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:16px;resize:none;}
-        .dark-mode textarea{background:#333;border-color:#444;color:#fff;}
-        .btn-group{display:flex;gap:10px;margin-top:15px;}
-        .btn{flex:1;padding:12px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
-        .btn-primary{background:#2196F3;color:#fff;}
-        .btn-secondary{background:#eee;color:#333;}
-        .dark-mode .btn-secondary{background:#444;color:#fff;}
-    </style>
 </head>
 <body>
     <div class="global-buttons">
-        <button class="global-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
-        <button class="global-btn" onclick="switchLang('en')">🇺🇸 English</button>
-        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 深色</button>
+        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 Dark Mode</button>
     </div>
 
     <nav>
         <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
         <div class="desktop-menu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html" data-lang="home">🏠 Home</a>
-            <a href="profit-calculator.html" data-lang="profit">💰 Profit</a>
-            <a href="vat-calculator.html" data-lang="vat">💶 VAT</a>
-            <a href="shipping-estimator.html" data-lang="shipping">🚚 Shipping</a>
-            <a href="forbidden-word-checker.html" data-lang="forbid">🚫 Forbidden Words</a>
-            <a href="currency-converter.html" data-lang="currency">💱 Currency</a>
-            <a href="size-converter.html" data-lang="size">📏 Size</a>
-            <a href="keyword-expander.html" data-lang="keyword">🔑 Keyword</a>
-            <a href="char-counter.html" data-lang="char">🔤 Char Counter</a>
-            <a href="stock-calculator.html" data-lang="stock">📦 Stock</a>
-            <a href="volume-weight.html" data-lang="volweight">📐 Vol Weight</a>
-            <a href="quote-calculator.html" data-lang="quote">💵 Quote Margin</a>
-            <a href="title-generator.html" data-lang="title">📝 Title</a>
-            <a href="description-generator.html" data-lang="desc">🌐 Description</a>
-            <a href="package-tracker.html" data-lang="track">📦 Tracking</a>
-            <a href="discount-calculator.html" data-lang="discount">💴 Discount</a>
-            <a href="unit-converter.html" data-lang="unit">⚖️ Unit Convert</a>
-            <a href="time-calculator.html" data-lang="time">⏰ Time Calc</a>
-            <a href="profit-rate.html" data-lang="profitrate">📈 Profit Rate</a>
-            <a href="text-cleaner.html" data-lang="textclean">🧹 Text Clean</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="profit-calculator.html">💰 Profit</a>
+            <a href="vat-calculator.html">💶 VAT</a>
+            <a href="shipping-estimator.html">🚚 Shipping</a>
+            <a href="forbidden-word-checker.html">🚫 Forbidden Words</a>
+            <a href="currency-converter.html">💱 Currency</a>
+            <a href="size-converter.html">📏 Size</a>
+            <a href="keyword-expander.html">🔑 Keyword</a>
+            <a href="char-counter.html">🔤 Char Counter</a>
+            <a href="stock-calculator.html">📦 Stock</a>
+            <a href="volume-weight.html">📐 Vol Weight</a>
+            <a href="quote-calculator.html">💵 Quote Margin</a>
+            <a href="title-generator.html">📝 Title</a>
+            <a href="description-generator.html">📄 Description</a>
+            <a href="package-tracker.html">📦 Tracking</a>
+            <a href="discount-calculator.html">💴 Discount</a>
+            <a href="unit-converter.html">⚖️ Unit Convert</a>
+            <a href="time-calculator.html">⏰ Time Calc</a>
+            <a href="profit-rate.html">📈 Profit Rate</a>
+            <a href="text-cleaner.html">🧹 Text Clean</a>
         </div>
     </nav>
 
     <div class="container">
-        <header>
-            <h3 data-lang="p19title">Text Cleaner</h3>
-            <p data-lang="p19desc">Remove extra spaces and line breaks</p>
+        <header class="page-header">
+            <h1>Text Cleaner</h1>
+            <p>Remove extra spaces and line breaks</p>
         </header>
+
         <div class="calculator-card">
-            <textarea id="rawText" placeholder="粘贴需要清理的文本"></textarea>
-            <div class="btn-group">
-                <button class="btn btn-primary" onclick="cleanText()" id="btn_clean">清理文本</button>
-                <button class="btn btn-secondary" onclick="clearAll()" id="btn_clear">清空</button>
+            <div class="input-group">
+                <label>Original Text</label>
+                <textarea id="rawText" rows="6" placeholder="Paste your messy text here"></textarea>
             </div>
-            <textarea id="cleanedText" placeholder="清理后的文本" readonly></textarea>
+            <div class="btn-group">
+                <button class="btn" onclick="cleanText()">Clean</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
+            </div>
+            <div class="result-box" id="resultBox"></div>
         </div>
-        <div style="text-align:center;margin:20px 0;">
-            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
         </div>
     </div>
 
-    <footer>
-        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
-    </footer>
-
-    <script src="lang.js"></script>
     <script>
-        const formLang = {
-            zh:{btn_clean:"清理文本",btn_clear:"清空"},
-            en:{btn_clean:"Clean Text",btn_clear:"Clear"}
-        };
-        const originSwitch = switchLang;
-        switchLang = function(lang){
-            originSwitch(lang);
-            document.getElementById("btn_clean").innerText = formLang[lang].btn_clean;
-            document.getElementById("btn_clear").innerText = formLang[lang].btn_clear;
-        };
-        function cleanText(){
-            let raw = document.getElementById("rawText").value;
-            // 去除多余空格、换行、制表符
-            let cleaned = raw.replace(/\s+/g, " ").trim();
-            document.getElementById("cleanedText").value = cleaned;
+        function cleanText() {
+            let text = document.getElementById('rawText').value;
+            // Remove line breaks and extra spaces
+            text = text.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+            document.getElementById('resultBox').innerText = text;
         }
-        function clearAll(){
-            document.getElementById("rawText").value = "";
-            document.getElementById("cleanedText").value = "";
+
+        function reset() {
+            document.getElementById('rawText').value = '';
+            document.getElementById('resultBox').innerText = '';
         }
+
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            document.body.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        window.onload = function() {
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        };
     </script>
 </body>
 </html>
