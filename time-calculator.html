@@ -23,4 +23,50 @@
         <a href="title-generator.html">📝 Title</a>
         <a href="description-generator.html">📄 Description</a>
         <a href="package-tracker.html">📦 Tracking</a>
-        <a href="discount-c
+        <a href="discount-calculator.html">💴 Discount</a>
+        <a href="unit-converter.html">⚖️ Unit Convert</a>
+        <a href="time-calculator.html">⏰ Time Calc</a>
+        <a href="profit-rate.html">📈 Profit Rate</a>
+        <a href="text-cleaner.html">🧹 Text Clean</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Time Calculator</h1>
+            <p>Calculate time duration</p>
+        </div>
+        <div class="calculator-card">
+            <div class="input-group">
+                <label>Start Hour</label>
+                <input type="number" id="startH" placeholder="0-23">
+            </div>
+            <div class="input-group">
+                <label>End Hour</label>
+                <input type="number" id="endH" placeholder="0-23">
+            </div>
+            <div class="btn-group">
+                <button class="btn" onclick="calc()">Calculate</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
+            </div>
+            <div class="result-box" id="res"></div>
+        </div>
+        <div class="back-to-home">
+            <a href="index.html" class="btn">Back Home</a>
+        </div>
+    </div>
+
+    <script>
+        function calc(){
+            let s = parseFloat(document.getElementById('startH').value)||0;
+            let e = parseFloat(document.getElementById('endH').value)||0;
+            let diff = e >= s ? e - s : 24 - s + e;
+            document.getElementById('res').innerText = `Time Difference: ${diff} Hours`;
+        }
+        function reset(){
+            document.getElementById('startH').value = "";
+            document.getElementById('endH').value = "";
+            document.getElementById('res').innerText = "";
+        }
+    </script>
+</body>
+</html>
