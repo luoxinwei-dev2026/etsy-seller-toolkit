@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etsy Seller Toolkit</title>
+    <title>Profit Calculator</title>
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
@@ -61,117 +61,88 @@
 
     <div class="container">
         <header class="page-header">
-            <h1>Etsy Seller Toolkit</h1>
-            <p>All-in-One Tools for Cross-border Sellers</p>
+            <h1>Profit Calculator</h1>
+            <p>Calculate net profit and margin including fees and shipping</p>
         </header>
 
-        <div class="tool-grid">
-            <div class="tool-card">
-                <h3>💰 Profit Calculator</h3>
-                <p>Calculate net profit, gross and net margin accurately</p>
-                <a href="profit-calculator.html" class="btn open-tool-btn">Open Tool</a>
+        <div class="calculator-card">
+            <div class="input-group">
+                <label>Selling Price (USD)</label>
+                <input type="number" id="sellingPrice" placeholder="Enter product selling price">
             </div>
-            <div class="tool-card">
-                <h3>💶 VAT Calculator</h3>
-                <p>Calculate VAT costs for European marketplaces</p>
-                <a href="vat-calculator.html" class="btn open-tool-btn">Open Tool</a>
+            <div class="input-group">
+                <label>Product Cost (USD)</label>
+                <input type="number" id="productCost" placeholder="Enter sourcing cost">
             </div>
-            <div class="tool-card">
-                <h3>🚚 Shipping Estimator</h3>
-                <p>Estimate international shipping costs easily</p>
-                <a href="shipping-estimator.html" class="btn open-tool-btn">Open Tool</a>
+            <div class="input-group">
+                <label>Platform Fee (%)</label>
+                <input type="number" id="platformFee" placeholder="Enter platform commission rate">
             </div>
-            <div class="tool-card">
-                <h3>🚫 Forbidden Words Checker</h3>
-                <p>Check sensitive words to avoid store violations</p>
-                <a href="forbidden-word-checker.html" class="btn open-tool-btn">Open Tool</a>
+            <div class="input-group">
+                <label>Shipping Cost (USD)</label>
+                <input type="number" id="shippingCost" placeholder="Enter international shipping cost">
             </div>
-            <div class="tool-card">
-                <h3>💱 Currency Converter</h3>
-                <p>Convert multi-currency costs and selling prices</p>
-                <a href="currency-converter.html" class="btn open-tool-btn">Open Tool</a>
+            <div class="input-group">
+                <label>Ad Cost (USD)</label>
+                <input type="number" id="adCost" placeholder="Enter advertising cost">
             </div>
-            <div class="tool-card">
-                <h3>📏 Size Converter</h3>
-                <p>Quick conversion between Inch and Centimeter</p>
-                <a href="size-converter.html" class="btn open-tool-btn">Open Tool</a>
+            <div class="btn-group">
+                <button class="btn" onclick="calculate()">Calculate</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
             </div>
-            <div class="tool-card">
-                <h3>🔑 Keyword Expander</h3>
-                <p>Generate long-tail keywords for better ranking</p>
-                <a href="keyword-expander.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>🔤 Character Counter</h3>
-                <p>Count characters for title & description limits</p>
-                <a href="char-counter.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>📦 Stock Calculator</h3>
-                <p>Calculate available stock days for restocking</p>
-                <a href="stock-calculator.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>📐 Volume Weight Calculator</h3>
-                <p>Calculate volumetric weight to save shipping fee</p>
-                <a href="volume-weight.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>💵 Quote Margin Calculator</h3>
-                <p>Calculate selling price based on target profit margin</p>
-                <a href="quote-calculator.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>📝 Title Generator</h3>
-                <p>Create high-traffic compliant product titles</p>
-                <a href="title-generator.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>📄 Description Generator</h3>
-                <p>Generate professional product descriptions</p>
-                <a href="description-generator.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>📦 Package Tracker</h3>
-                <p>Track real-time logistics status of parcels</p>
-                <a href="package-tracker.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>💴 Discount Calculator</h3>
-                <p>Calculate discount price and final amount</p>
-                <a href="discount-calculator.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>⚖️ General Unit Converter</h3>
-                <p>Convert weight, length and volume units</p>
-                <a href="unit-converter.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>⏰ Time Calculator</h3>
-                <p>Calculate date difference and working days</p>
-                <a href="time-calculator.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>📈 Profit Rate Analyzer</h3>
-                <p>Analyze overall profit and net profit rate</p>
-                <a href="profit-rate.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
-            <div class="tool-card">
-                <h3>🧹 Text Cleaner</h3>
-                <p>Remove extra spaces and line breaks from text</p>
-                <a href="text-cleaner.html" class="btn open-tool-btn">Open Tool</a>
-            </div>
+            <div class="result-box" id="resultBox"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
-        <div style="margin-top: 15px; line-height: 1.6;">
-            <p style="font-weight: bold;">Version Update Log</p>
-            <p>V1.0.0 | 2026-06-10 : Basic functions launched, support dark mode</p>
-        </div>
-    </footer>
+    <script>
+        function calculate() {
+            const sellingPrice = parseFloat(document.getElementById('sellingPrice').value);
+            const productCost = parseFloat(document.getElementById('productCost').value);
+            const platformFee = parseFloat(document.getElementById('platformFee').value);
+            const shippingCost = parseFloat(document.getElementById('shippingCost').value);
+            const adCost = parseFloat(document.getElementById('adCost').value);
 
-    <script src="lang.js"></script>
+            if ([sellingPrice, productCost, platformFee, shippingCost, adCost].some(isNaN)) {
+                document.getElementById('resultBox').innerText = 'Please fill in all valid numbers';
+                return;
+            }
+
+            const platformFeeAmount = sellingPrice * (platformFee / 100);
+            const totalCost = productCost + platformFeeAmount + shippingCost + adCost;
+            const netProfit = sellingPrice - totalCost;
+            const profitMargin = (netProfit / sellingPrice) * 100;
+
+            document.getElementById('resultBox').innerHTML = `
+                <p><strong>Net Profit:</strong> $${netProfit.toFixed(2)}</p>
+                <p><strong>Profit Margin:</strong> ${profitMargin.toFixed(2)}%</p>
+            `;
+        }
+
+        function reset() {
+            document.querySelectorAll('input').forEach(input => input.value = '');
+            document.getElementById('resultBox').innerText = '';
+        }
+
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            document.body.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        window.onload = function() {
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        };
+    </script>
 </body>
 </html>
