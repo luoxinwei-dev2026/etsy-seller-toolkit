@@ -5,12 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
     <link rel="stylesheet" href="global.css">
+    <style>
+        .calculator-card{max-width:600px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+        .dark-mode .calculator-card{background:#2a2a2a;color:#fff;}
+        .input-group{margin-bottom:15px;}
+        .input-group label{display:block;margin-bottom:5px;font-weight:500;}
+        .input-group input{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:16px;}
+        .dark-mode .input-group input{background:#333;border-color:#444;color:#fff;}
+        .btn-group{display:flex;gap:10px;margin-top:20px;}
+        .btn{flex:1;padding:12px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
+        .btn-primary{background:#2196F3;color:#fff;}
+        .btn-secondary{background:#eee;color:#333;}
+        .dark-mode .btn-secondary{background:#444;color:#fff;}
+        .result-box{margin-top:25px;padding:15px;background:#f8f9fa;border-radius:8px;display:none;}
+        .dark-mode .result-box{background:#333;}
+    </style>
 </head>
 <body>
     <div class="global-buttons">
         <button class="global-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
         <button class="global-btn" onclick="switchLang('en')">🇺🇸 English</button>
-        <button class="global-btn" id="themeSwitch">🌙 深色</button>
+        <button class="global-btn" id="themeSwitch" onclick="toggleDarkMode()">🌙 深色</button>
     </div>
 
     <nav>
@@ -66,22 +81,52 @@
             <h3 data-lang="p16title">Unit Converter</h3>
             <p data-lang="p16desc">Convert various units quickly</p>
         </header>
-        <div style="text-align:center;padding:40px 0;">
-            <p>功能开发区域</p>
-            <br>
-            <a href="index.html" class="btn">返回首页</a>
+        <div class="calculator-card">
+            <div class="input-group">
+                <label id="label_cm">厘米(cm)</label>
+                <input type="number" id="cm" step="0.01" placeholder="输入厘米">
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="convertUnit()" id="btn_calc">换算</button>
+                <button class="btn btn-secondary" onclick="resetUnit()" id="btn_reset">重置</button>
+            </div>
+            <div class="result-box" id="resBox">
+                <p id="res_inch">英寸：0.00</p>
+            </div>
+        </div>
+        <div style="text-align:center;margin:20px 0;">
+            <a href="index.html" class="btn btn-secondary" data-lang="btn_back">返回首页</a>
         </div>
     </div>
 
     <footer>
-        <p data-lang="copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
-        <div style="margin-top: 15px; line-height: 1.6;">
-            <p style="font-weight: bold;" data-lang="versionTitle">Version Update Log</p>
-            <p data-lang="v10">V1.0.0 | 2026-06-10 : Basic functions launched, with e-commerce & logistics tools, bilingual & dark mode supported</p>
-            <p data-lang="v11">V1.1.0 | Pending : Optimize mobile layout, add input validation & operation feedback</p>
-        </div>
+        <p data-lang="footer_copyright">© 2026 Cross-border Seller Toolkit. All Rights Reserved.</p>
     </footer>
 
     <script src="lang.js"></script>
+    <script>
+        const formLang = {
+            zh:{label_cm:"厘米(cm)",btn_calc:"换算",btn_reset:"重置",res_inch:"英寸："},
+            en:{label_cm:"Centimeter(cm)",btn_calc:"Convert",btn_reset:"Reset",res_inch:"Inch："}
+        };
+        const originSwitch = switchLang;
+        switchLang = function(lang){
+            originSwitch(lang);
+            document.getElementById("label_cm").innerText = formLang[lang].label_cm;
+            document.getElementById("btn_calc").innerText = formLang[lang].btn_calc;
+            document.getElementById("btn_reset").innerText = formLang[lang].btn_reset;
+            document.getElementById("res_inch").innerText = formLang[lang].res_inch;
+        };
+        function convertUnit(){
+            let cm = parseFloat(document.getElementById("cm").value)||0;
+            let inch = cm / 2.54;
+            document.getElementById("res_inch").innerText = formLang[localStorage.getItem('preferredLang')||'zh'].res_inch + inch.toFixed(2);
+            document.getElementById("resBox").style.display = "block";
+        }
+        function resetUnit(){
+            document.getElementById("cm").value = "";
+            document.getElementById("resBox").style.display = "none";
+        }
+    </script>
 </body>
 </html>
