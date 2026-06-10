@@ -1,4 +1,4 @@
-/* 全局通用样式 + 双语按钮 + 暗色模式 */
+/* 全局通用样式 + 右侧纵向按钮 + 暗色模式 */
 :root {
   --main-blue: #3498db;
   --bg-light: #f0f4f8;
@@ -60,16 +60,18 @@ nav a:hover {
   opacity: 0.85;
 }
 
-/* 双语+主题按钮区域 - 修复遮挡问题 */
+/* 双语+主题按钮区域 - 右侧纵向排列 */
 .global-buttons {
   position: fixed;
-  top: 75px;
+  top: 50%;
   right: 20px;
+  transform: translateY(-50%); /* 垂直居中 */
   z-index: 9999;
   display: flex;
+  flex-direction: column; /* 关键：改为纵向排列 */
   gap: 10px;
   background-color: rgba(255, 255, 255, 0.95);
-  padding: 10px 15px;
+  padding: 15px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -99,6 +101,7 @@ nav a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  padding-right: 120px; /* 给右侧按钮留空间，避免内容被挡住 */
 }
 header {
   text-align: center;
@@ -163,6 +166,7 @@ footer {
   font-size: 13px;
   color: #666;
   border-top: 1px solid #eee;
+  padding-right: 120px; /* 页脚也给右侧按钮留空间 */
 }
 footer p {
   margin: 6px 0;
