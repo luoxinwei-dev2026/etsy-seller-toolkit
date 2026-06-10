@@ -3,80 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-language Product Description Generator</title>
+    <title>Multi-language Description Generator | Etsy Listings</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; padding: 20px; }
+        body { background-color: #f0f4f8; color: #333; padding-top: 70px; }
+        nav { background-color: #3498db; padding: 15px; position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ecf0f1; }
         .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         h1 { color: #2c3e50; text-align: center; margin-bottom: 30px; }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; }
-        textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px; }
+        textarea, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
         button { width: 100%; padding: 12px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
         button:hover { background-color: #2980b9; }
         .result { margin-top: 30px; padding: 20px; background-color: #e8f4fd; border-radius: 5px; }
-        .tab-container { display: flex; margin-bottom: 15px; border-bottom: 1px solid #ddd; }
-        .tab { padding: 10px 15px; cursor: pointer; background: #eee; border: none; border-radius: 5px 5px 0 0; margin-right: 5px; }
-        .tab.active { background: #3498db; color: white; }
-        .description { display: none; padding: 15px; background: white; border-radius: 5px; }
-        .description.active { display: block; }
         .back-link { display: block; text-align: center; margin-top: 20px; color: #3498db; text-decoration: none; }
+        footer { text-align: center; margin-top: 30px; color: #777; font-size: 0.9rem; padding: 20px; }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="profit-calculator.html">💰 Profit Calculator</a>
+        <a href="title-generator.html">📝 Title & Tags</a>
+        <a href="description-generator.html">🌐 Description</a>
+        <a href="package-tracker.html">📦 Package Tracker</a>
+    </nav>
+
     <div class="container">
         <h1>Multi-language Description Generator</h1>
         <form id="descForm">
             <div class="form-group">
-                <label for="englishDesc">English Product Description</label>
-                <textarea id="englishDesc" required placeholder="Enter your product details here..."></textarea>
+                <label for="productDesc">Product Description</label>
+                <textarea id="productDesc" rows="5" required></textarea>
             </div>
-            <button type="submit">Generate Translations</button>
+            <div class="form-group">
+                <label for="language">Target Language</label>
+                <select id="language" required>
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                </select>
+            </div>
+            <button type="submit">Generate Description</button>
         </form>
 
         <div class="result" id="result" style="display: none;">
-            <div class="tab-container">
-                <button class="tab active" data-lang="en">English</button>
-                <button class="tab" data-lang="fr">French</button>
-                <button class="tab" data-lang="de">German</button>
-                <button class="tab" data-lang="es">Spanish</button>
-                <button class="tab" data-lang="it">Italian</button>
-            </div>
-
-            <div class="description active" id="en-desc"></div>
-            <div class="description" id="fr-desc"></div>
-            <div class="description" id="de-desc"></div>
-            <div class="description" id="es-desc"></div>
-            <div class="description" id="it-desc"></div>
+            <h3>Generated Description:</h3>
+            <p id="descOutput"></p>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 
+    <footer>
+        <p>© 2025 Etsy Seller Toolkit | All tools are free to use.</p>
+    </footer>
+
     <script>
         document.getElementById('descForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const enDesc = document.getElementById('englishDesc').value;
-
-            // Mock translations (you can replace with real translations later)
-            document.getElementById('en-desc').textContent = enDesc;
-            document.getElementById('fr-desc').textContent = `Version française: ${enDesc}`;
-            document.getElementById('de-desc').textContent = `Deutsche Version: ${enDesc}`;
-            document.getElementById('es-desc').textContent = `Versión española: ${enDesc}`;
-            document.getElementById('it-desc').textContent = `Versione italiana: ${enDesc}`;
-
+            const desc = document.getElementById('productDesc').value;
+            const lang = document.getElementById('language').value;
+            // 这里只是模拟生成，实际可接入翻译API
+            const translated = `[${lang.toUpperCase()}] ${desc}`;
+            document.getElementById('descOutput').textContent = translated;
             document.getElementById('result').style.display = 'block';
-        });
-
-        // Tab switching
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.description').forEach(d => d.classList.remove('active'));
-
-                this.classList.add('active');
-                document.getElementById(`${this.dataset.lang}-desc`).classList.add('active');
-            });
         });
     </script>
 </body>
