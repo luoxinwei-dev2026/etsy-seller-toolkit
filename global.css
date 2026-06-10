@@ -11,7 +11,7 @@ body {
     color: #1e293b;
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 56px;
+    padding-top: 56px; /* 给导航栏留空间 */
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -20,13 +20,13 @@ body.dark-mode {
     color: #e2e8f0;
 }
 
-/* 顶部导航（柔和浅蓝，不刺眼） */
+/* 顶部导航 */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #3b82f6;
+    background-color: #3b82f6; /* 柔和浅蓝 */
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
@@ -56,10 +56,10 @@ nav a:hover {
     opacity: 0.8;
 }
 
-/* 深色模式按钮 */
+/* 深色模式按钮：下移到导航栏下方，不重叠 */
 .global-buttons {
     position: fixed;
-    top: 10px;
+    top: 65px; /* 导航栏高度+10px，避开重叠 */
     right: 10px;
     z-index: 101;
 }
