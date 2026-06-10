@@ -20,13 +20,13 @@ body.dark-mode {
     color: #e2e8f0;
 }
 
-/* 顶部导航（降低蓝色，用更柔和的色调） */
+/* 顶部导航（柔和浅蓝，不刺眼） */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #3b82f6; /* 柔和天蓝色，不刺眼 */
+    background-color: #3b82f6;
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
@@ -147,7 +147,7 @@ body.dark-mode .input-group textarea {
     margin-bottom: 1.5rem;
 }
 .btn {
-    background: #3b82f6; /* 和导航栏统一色调，不突兀 */
+    background: #3b82f6;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
